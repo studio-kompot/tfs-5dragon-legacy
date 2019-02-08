@@ -22,3 +22,9 @@ Main links
 **Unity:**
 - https://id.unity.com/en/organizations/kompot-studios
 - (Join is invite only, message Archie about it)
+
+Media links
+-----------
+- 
+
+***TO MAKE IRONPYTHON WORK:*** go to `Edit > Project Settings > Player > Other Settings > Configuration` and change Scripting Runtime Version to "Experimental (.NET 4.6 Equivalent)".
