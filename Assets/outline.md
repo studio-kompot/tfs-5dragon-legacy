@@ -1,7 +1,19 @@
-TALES FROM SEINGOLM DRAGONS: PROJECT SHEET
-==========================================
+5DRAGONS: PROJECT SHEET
+=======================
 
-[![forthebadge](https://forthebadge.com/images/badges/built-with-swag.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/made-with-c-sharp.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/60-percent-of-the-time-works-every-time.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/built-with-swag.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/made-with-c-sharp.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/60-percent-of-the-time-works-every-time.svg)](https://forthebadge.com)
+
+Project Structure
+-----------------
+- `def` Enemy and dialog definitions
+- `graphics` Graphics files and sprites
+- `logic` All the code and logic of the game
+- `misc` File storage, and files to be considered later
+- `sound` All audio and background tracks
+- `unity` Unity and unity ~~accessories~~files.
+
 
 Main links
 ----------
@@ -25,6 +37,8 @@ Main links
 
 Media links
 -----------
-- 
+- [What is YAML?](https://en.wikipedia.org/wiki/YAML)
+- [DaST help](http://atlasjan.sdf.org/dl/dast-doc/dast.html)
 
-***TO MAKE IRONPYTHON WORK:*** go to `Edit > Project Settings > Player > Other Settings > Configuration` and change Scripting Runtime Version to "Experimental (.NET 4.6 Equivalent)".
+***TO MAKE IRONPYTHON WORK:*** go to `Edit > Project Settings > Player > Other Settings > Configuration` and change Scripting Runtime Version
+to "Experimental (.NET 4.6 Equivalent)".
