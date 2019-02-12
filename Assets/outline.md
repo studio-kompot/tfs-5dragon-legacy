@@ -45,25 +45,25 @@ Media links
 Attribution
 -----------
 
-- [Peek-Door Quest by Rolemusic](peekdoor) is licensed under an [Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) license
-- [The Little Broth by Rolemusic](littlebroth) is licensed under an [Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) license
-- [Flamenco Rhythm by Sunsearcher](flamenco1) is licensed under a Attribution-ShareAlike 3.0 International License.
-- [Songs from an Unmade Forest World (Loops)](forestworld) by Visager is licensed under a Attribution-ShareAlike License.
-- [Songs From An Unmade World](unmadeworld) by Visager is licensed under a Attribution License.]
-- [Songs From An Unmade World 2](unmadeworld2) by Visager is licensed under a [Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) license. Based on a work at http://visager.bandcamp.com/album/songs-from-an-unmade-world-2
+- [Peek-Door Quest by Rolemusic][peekdoor] is licensed under an [Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) license
+- [The Little Broth by Rolemusic][littlebroth] is licensed under an [Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) license
+- [Flamenco Rhythm by Sunsearcher][flamenco1] is licensed under a Attribution-ShareAlike 3.0 International License.
+- [Songs from an Unmade Forest World (Loops)][forestworld] by Visager is licensed under a Attribution-ShareAlike License.
+- [Songs From An Unmade World][unmadeworld] by Visager is licensed under a Attribution License.]
+- [Songs From An Unmade World 2][unmadeworld2] by Visager is licensed under a [Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) license. Based on a work at http://visager.bandcamp.com/album/songs-from-an-unmade-world-2
 
 [peekdoor]: http://freemusicarchive.org/music/Rolemusic/~/Peek-Door_Quest
 [littlebroth]: http://freemusicarchive.org/music/Rolemusic/The_Black_Dot/09_rolemusic_-_the_little_broth
 [flamenco1]: http://freemusicarchive.org/music/Sunsearcher/Sunsearcher_Spirit/05_-_Flamenco_Rhythm
 [unmadeworld]: https://freemusicarchive.org/music/Visager/Songs_From_An_Unmade_World/
-[umadeworld2]: https://freemusicarchive.org/music/Visager/Songs_From_An_Unmade_World_2/
+[unmadeworld2]: https://freemusicarchive.org/music/Visager/Songs_From_An_Unmade_World_2/
 [forestworld]: https://freemusicarchive.org/music/Visager/Songs_from_an_Unmade_Forest_World/
 
 License
 -------
 
 Tales from Seingolm: Rule of the Five Dragons -- Role-playing Videogame
-Copyright (C) 2019  Anand Thrakar Brown, Archie Sullivan, & Danny O'Dwyer
+Copyright (C) 2019  Anand Thrakar Brown, Archie Sullivan & Danny O'Dwyer
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
