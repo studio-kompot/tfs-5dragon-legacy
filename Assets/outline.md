@@ -5,6 +5,9 @@
 [![forthebadge](https://forthebadge.com/images/badges/made-with-c-sharp.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/60-percent-of-the-time-works-every-time.svg)](https://forthebadge.com)
 
+***TO MAKE IRONPYTHON WORK IN CASE IT DOESNT:*** go to `Edit > Project Settings > Player > Other Settings > Configuration` and change Scripting Runtime Version
+to "Experimental (.NET 4.6 Equivalent)".
+
 Project Structure
 -----------------
 - `def` Enemy and dialog definitions
@@ -13,7 +16,6 @@ Project Structure
 - `misc` File storage, and files to be considered later
 - `sound` All audio and background tracks
 - `unity` Unity and unity ~~accessories~~files.
-
 
 Main links
 ----------
@@ -40,5 +42,32 @@ Media links
 - [What is YAML?](https://en.wikipedia.org/wiki/YAML)
 - [DaST help](http://atlasjan.sdf.org/dl/dast-doc/dast.html)
 
-***TO MAKE IRONPYTHON WORK:*** go to `Edit > Project Settings > Player > Other Settings > Configuration` and change Scripting Runtime Version
-to "Experimental (.NET 4.6 Equivalent)".
+Attribution
+-----------
+
+- [Peek-Door Quest by Rolemusic](peekdoor) is licensed under an [Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) license
+- [The Little Broth by Rolemusic](littlebroth) is licensed under an [Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) license
+- [Flamenco Rhythm by Sunsearcher](flamenco1) is licensed under a Attribution-ShareAlike 3.0 International License.
+
+[peekdoor]: http://freemusicarchive.org/music/Rolemusic/~/Peek-Door_Quest
+[littlebroth]: http://freemusicarchive.org/music/Rolemusic/The_Black_Dot/09_rolemusic_-_the_little_broth
+[flamenco1]: http://freemusicarchive.org/music/Sunsearcher/Sunsearcher_Spirit/05_-_Flamenco_Rhythm
+
+License
+-------
+
+Tales from Seingolm: Rule of the Five Dragons -- Role-playing Videogame
+Copyright (C) 2019  Anand Thrakar Brown, Archie Sullivan, & Danny O'Dwyer
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
