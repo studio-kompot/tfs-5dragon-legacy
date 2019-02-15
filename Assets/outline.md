@@ -20,20 +20,20 @@ Project Structure
 Main links
 ----------
 
-**Trello:**
-- https://trello.com/b/CLcHaZaW/agile-tasklist-for-game 
+##Trello:
+- https://trello.com/b/CLcHaZaW/agile-tasklist-for-game
 - https://trello.com/invite/b/CLcHaZaW/596ae0719fbdf2e2cc76aa24693dd9a5/agile-tasklist-for-game (Invite link)
 - Agile development queue (with annotations)
-**Slack:**
+##Slack:
 - https://kompot-tfs.slack.com/
 - Research and planning chat, as well as secondary file storage & communication
-**WhatsApp:**
+##WhatsApp:
 - https://chat.whatsapp.com/FMY3vHiqBRHIod3fdxCxbu
 - Semi-formal chat, general purpose, intended primary communication channel
-**Google Drive:**
+##Google Drive:
 - https://drive.google.com/drive/folders/1GUgiy8EMZDn8cgWhRgNoMHHtF2FGHqCs?usp=sharing
 - Primary file storage
-**Unity:**
+##Unity:
 - https://id.unity.com/en/organizations/kompot-studios
 - (Join is invite only, message Archie about it)
 
