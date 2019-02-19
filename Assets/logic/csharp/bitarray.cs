@@ -9,58 +9,65 @@ namespace Bitarray
      * 
      * 
      */
-    public class Bitarray : BitFlag
+    public class Bitarray
     {
 
 
-        uint max;
+        public ushort max;
         /// <summary>The array of bits to operate on, use <c>&=</c> with a set of numbers to use it</summary>
         public ushort narray;
-        private bool isPastMax(uint num)
+        private bool isPastMax(ushort num)
         {
-            return num < ushort.MaxValue;
-        }
-        Bitarray(uint max_, ushort narray_)
-        {
-            if (isPastMax(max_))
+            if (max == ushort.MaxValue)
             {
-                throw new System.IndexOutOfRangeException();
+                return num < ushort.MaxValue;
             }
             else
             {
-                max = max_;
-                narray |= narray_;
+                return num < max;
             }
-        }
-        /**
-         * <param name="i">The index of the bit array to access</param>
-         * <returns>the boolean value at the position specified by the index</returns>
-         */
-        public bool get(ushort i)
+            }
+            Bitarray(ushort max_, ushort narray_)
         {
-            if (isPastMax(i))
-            {
-                throw new System.IndexOutOfRangeException();
+                if (isPastMax(max_))
+                {
+                    throw new System.IndexOutOfRangeException();
+                }
+                else
+                {
+                    max = max_;
+                    narray |= narray_;
+                }
             }
-            else
+            /**
+             * <param name="i">The index of the bit array to access</param>
+             * <returns>the boolean value at the position specified by the index</returns>
+             */
+            public bool get(ushort i)
             {
-                return System.Convert.ToBoolean(narray & (1 << i));
+                if (isPastMax(i))
+                {
+                    throw new System.IndexOutOfRangeException();
+                }
+                else
+                {
+                    return System.Convert.ToBoolean(narray & (1 << i));
+                }
             }
-        }
-        /**
-         * <param name="i">The index of the bit to toggle</param>
-         * <summary></summary>
-         */
-        public void toggle(ushort i)
-        {
-            if (isPastMax(i))
+            /**
+             * <param name="i">The index of the bit to toggle</param>
+             * <summary></summary>
+             */
+            public void toggle(ushort i)
             {
-                throw new System.IndexOutOfRangeException();
-            }
-            else
-            {
-                narray ^= (2 << i);
+                if (isPastMax(i))
+                {
+                    throw new System.IndexOutOfRangeException();
+                }
+                else
+                {
+                    narray ^= System.Convert.ToUInt16(1 << i);
+                }
             }
         }
     }
-}

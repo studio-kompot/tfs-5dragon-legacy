@@ -36,6 +36,10 @@ Main links
 ##Unity:
 - https://id.unity.com/en/organizations/kompot-studios
 - (Join is invite only, message Archie about it)
+##GitHub:
+- https://github.com/kompot-studios
+- (To be used after submission, check the guide for setting it all up)
+
 
 Media links
 -----------
