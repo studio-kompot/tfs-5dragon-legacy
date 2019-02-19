@@ -52,9 +52,9 @@ Attribution
 - [Peek-Door Quest by Rolemusic][peekdoor] is licensed under an [Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) license
 - [The Little Broth by Rolemusic][littlebroth] is licensed under an [Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) license
 - [Flamenco Rhythm by Sunsearcher][flamenco1] is licensed under a Attribution-ShareAlike 3.0 International License.
-- [Songs from an Unmade Forest World (Loops)][forestworld] by Visager is licensed under a Attribution-ShareAlike License.
-- [Songs From An Unmade World][unmadeworld] by Visager is licensed under a Attribution License.]
-- [Songs From An Unmade World 2][unmadeworld2] by Visager is licensed under a [Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) license. Based on a work at http://visager.bandcamp.com/album/songs-from-an-unmade-world-2
+- [Songs from an Unmade Forest World (Loops)][forestworld] by Visager, is licensed under a Attribution-ShareAlike License.
+- "Dark Sanctum (Boss Fight) [Loop]" "Ice Cave [Loop]", & "Shrine are from [Songs From An Unmade World][unmadeworld] by Visager and is licensed under a Attribution License.]
+- "Miniboss Fight [Loop]", "Battle! [Intro]", "Battle! [Loop] ", & " Witch's Hut [Loop]" are from[Songs From An Unmade World 2][unmadeworld2] by Visager is licensed under a [Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) license.
 
 [peekdoor]: http://freemusicarchive.org/music/Rolemusic/~/Peek-Door_Quest
 [littlebroth]: http://freemusicarchive.org/music/Rolemusic/The_Black_Dot/09_rolemusic_-_the_little_broth
