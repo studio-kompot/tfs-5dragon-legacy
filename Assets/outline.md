@@ -5,15 +5,13 @@
 [![forthebadge](https://forthebadge.com/images/badges/made-with-c-sharp.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/60-percent-of-the-time-works-every-time.svg)](https://forthebadge.com)
 
-***TO MAKE IRONPYTHON WORK IN CASE IT DOESNT:*** go to `Edit > Project Settings > Player > Other Settings > Configuration` and change Scripting Runtime Version
-to "Experimental (.NET 4.6 Equivalent)".
 
 Project Structure
 -----------------
 - `def` Enemy and dialog definitions
 - `graphics` Graphics files and sprites
 - `logic` All the code and logic of the game
-- `misc` File storage, and files to be considered later
+- `misc` File with tentative inclusion in the project, and off-repo links to said tentative inclusions.
 - `sound` All audio and background tracks
 - `unity` Unity and unity ~~accessories~~files.
 
@@ -38,7 +36,7 @@ Main links
 - (Join is invite only, message Archie about it)
 ##GitHub:
 - https://github.com/kompot-studios
-- (To be used after submission, check the guide for setting it all up)
+- (To be used in the post-demo period, check the guide for setting it all up)
 
 
 Media links
