@@ -4,31 +4,45 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEngine;
 
-namespace dast {
-    class DastOutput {
+namespace dast
+{
+    class DastOutput
+    {
         bool quit = false;
-        string? name;
-        string? faceplate;
+        Nullable<string> name;
+        Nullable<string> faceplate;
         string text;
         Nullable<List<string>> askchoices;
-    }
-    public DastOutput() {
-      name = null;
-      faceplate = null;
-      text = "";
-    }
-    public class DastInstance {
-            var tag = new Regex("^\[(\w)\]", RegexOptions.Compiled | RegexOptions.Multiline);
-            string[] datar;
-      int LineNumber = 0;
-      public DastInstance(string path, Database obj) {
-        datar.FormatWith(obj);
-        var outp = new DastOutput();
-        using (var f = new FileStream(path, FileMode.Open, FileAccess.Read)){
-          datar = f.ReadAllLines(path,Encoding.UTF8);
+        public DastOutput()
+        {
+            name = null;
+            faceplate = null;
+            text = "";
         }
-      }
-      IEnumerable<DastOutput> RunFile(string path, Database obj) {
-        if (LineNumber < datar || quit) yield "\0\0\0";
-      }
+        public class DastInstance
+        {
+            var tag = new Regex(@"^\[(\w)\]", RegexOptions.Compiled | RegexOptions.Multiline);
+            string[] datar;
+            var outp = new DastOutput();
+            int LineNumber = 0;
+            public DastInstance(string path, Database obj)
+            {
+                datar.FormatWith(obj);
+                using (var f = new FileStream(path, FileMode.Open, FileAccess.Read))
+                {
+                    datar = f.ReadAllLines(path, Encoding.UTF8);
+                }
+            }
+            IEnumerable<DastOutput> RunFile(string path, Database obj)
+            {
+                outp.quit = (LineNumber < datar.Length || quit);
+                Match m = tag.Match(datar[LineNumber]);
+                if (outp.quit) LineNumber++;
+                else if (m.Success)
+                {
+                    //TODO: great case statement
+                }
+            }
+        }
     }
+}

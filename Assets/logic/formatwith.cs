@@ -1,9 +1,8 @@
 using System.Regex;
-    public static string FormatWith(this string format, object source)
-    {
-        return FormatWith(format, null, source);
-    }
-    public static string FormatWith(this string format, IFormatProvider provider, object source)
+/* FIXME: MAKE IT BACKWARDS COMPATIBLE
+namespace FormatS
+{
+    public static string FormatS(string format, IFormatProvider provider, object source)
     {
         if (format == null)
             throw new ArgumentNullException("format");
@@ -24,3 +23,5 @@ using System.Regex;
         });
         return string.Format(provider, rewrittenFormat, values.ToArray());
     }
+}
+*/
