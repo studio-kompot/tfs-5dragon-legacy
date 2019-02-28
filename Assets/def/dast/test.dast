@@ -1,0 +1,14 @@
+[chr Aran aran/happy]If you can read this, that means the dialog system is up and running!
+[chr Neo neo/neutral]Hurrah!
+[chr Aran aran/happy]Now...
+Let's...
+See..
+If this...
+works...
+[ifeq 1 1]
+I <i>can</i> say this.
+maybe this?
+[else]
+If you can read this, something has gone wrong
+contact technical support
+[end]

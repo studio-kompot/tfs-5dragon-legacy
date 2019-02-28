@@ -8,13 +8,13 @@ using UnityEngine;
 
 namespace dast
 {
-    class DastOutput
+    public class DastOutput
     {
         bool quit = false;
         string name;
         string faceplate;
         string text;
-        System.Nullable<List<string>> askchoices;
+        List<string> askchoices;
         public DastOutput()
         {
             name = null;
@@ -23,30 +23,70 @@ namespace dast
         }
         public class DastInstance
         {
-            static class lex
+            static class Lex
             {
-                static Regex tag = new Regex(@"^\[(\w)\]", RegexOptions.Compiled);
-                static Regex iftype = new Regex(@"if([a-z]{2})", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+                public static Regex tag = new Regex(@"^\[(\w)\]", RegexOptions.Compiled);
+                public static Regex iftype = new Regex(@"if([a-z]{2})", RegexOptions.Compiled | RegexOptions.IgnoreCase);
             }
             string[] datar;
             DastOutput outp = new DastOutput();
             int LineNumber = 0;
-            public DastInstance(string path, Database obj)
+            bool quit = false;
+            public DastInstance(string path, Database obj, DataStruct format)
             {
-                datar.FormatWith(obj);
-                using (var f = new FileStream(path, FileMode.Open, FileAccess.Read))
+                try
                 {
-                    datar = f.ReadAllLines(path, Encoding.UTF8);
+                    using (StreamReader sr = new StreamReader(path))
+                    {
+                        var tmp = sr.ReadToEnd();
+                        tmp.FormatWith(format, obj);
+                        datar = tmp.Split(new[] { System.Environment.NewLine }, System.StringSplitOptions.None);
+                    }
+                }
+                catch (FileNotFoundException e)
+                {
+                    Debug.LogErrorFormat("{0}: Unable to load <i>{1}</i>: Unable to find file.", e.GetType().Name, path);
                 }
             }
-            IEnumerable<DastOutput> RunFile(string path, Database obj)
+            /**
+             * 
+             * 
+             */
+            IEnumerable<DastOutput> RunFile(Database obj)
             {
-                outp.quit = (LineNumber < datar.Length || quit);
-                Match m = lex.tag.Match(datar[LineNumber]);
-                if (outp.quit) LineNumber++;
-                else if (m.Success)
+                var comment = false;
+                string[] command;
+                while (!comment)
                 {
-                    //TODO: great case statement
+                    outp.quit = (LineNumber < datar.Length || quit);
+                    Match m = Lex.tag.Match(datar[LineNumber]);
+                    if (outp.quit)
+                    {
+                        LineNumber++;
+                    }
+                    else if (m.Success)
+                    {
+                        if (Regex.IsMatch(m.Value, @","))
+                        {
+                            command = m.Value.Split(',');
+                        }
+                        else
+                        {
+                            command = m.Value.Split(' ');
+                        }
+
+                        switch (command[0])
+                        {
+                            case "rem":
+                            case "#":
+                            case "comment": comment = true; break;
+                            case "chr":
+                                //TODO: Add logic
+
+                                break;
+                        }
+                        yield return outp;
+                    }
                 }
             }
         }
