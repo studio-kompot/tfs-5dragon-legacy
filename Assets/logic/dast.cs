@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using Newtonsoft.Json.Utilities;
 using UnityEngine;
 
 namespace dast
@@ -9,10 +10,10 @@ namespace dast
     class DastOutput
     {
         bool quit = false;
-        Nullable<string> name;
-        Nullable<string> faceplate;
+        string name;
+        string faceplate;
         string text;
-        Nullable<List<string>> askchoices;
+        System.Nullable<List<string>> askchoices;
         public DastOutput()
         {
             name = null;
@@ -21,9 +22,13 @@ namespace dast
         }
         public class DastInstance
         {
-            var tag = new Regex(@"^\[(\w)\]", RegexOptions.Compiled | RegexOptions.Multiline);
+            static class lex
+            {
+                static Regex tag = new Regex(@"^\[(\w)\]", RegexOptions.Compiled);
+                static Regex iftype = new Regex(@"if([a-z]{2})", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+            }
             string[] datar;
-            var outp = new DastOutput();
+            DastOutput outp = new DastOutput();
             int LineNumber = 0;
             public DastInstance(string path, Database obj)
             {
@@ -36,7 +41,7 @@ namespace dast
             IEnumerable<DastOutput> RunFile(string path, Database obj)
             {
                 outp.quit = (LineNumber < datar.Length || quit);
-                Match m = tag.Match(datar[LineNumber]);
+                Match m = lex.tag.Match(datar[LineNumber]);
                 if (outp.quit) LineNumber++;
                 else if (m.Success)
                 {
