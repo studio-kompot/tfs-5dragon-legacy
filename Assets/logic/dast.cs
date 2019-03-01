@@ -8,14 +8,14 @@ using UnityEngine;
 
 namespace dast
 {
-    public class DastOutput
+    public class Dialogue
     {
         bool quit = false;
         string name;
         string faceplate;
         string text;
         List<string> askchoices;
-        public DastOutput()
+        public Dialogue()
         {
             name = null;
             faceplate = null;
