@@ -38,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isMoving = false;
     private float target_x, target_y;
+    private Vector2 target;
     private byte stop = 0;
     private byte image_index = 0;
     private int image_speed_delay = 7;
@@ -54,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
      */
 
 
-    
+
 
 
     // Use this for initialization
@@ -63,8 +64,14 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         //anim = GetComponent<Animator>();
 
-        target_x = 0;
-        target_y = 0;
+        //target_x = 0;
+        //target_y = 0;
+        
+
+        target = new Vector2(transform.position.x, transform.position.y);
+        transform.position = target;
+
+        ///Debug.Log(target);
     }
 
 
@@ -79,8 +86,140 @@ public class PlayerMovement : MonoBehaviour
 
 
         // Keyboard Inputs (Arrow UP, Arrow Down, Arrow Left and Arrow Right)
-        position.x = Input.GetAxisRaw("Horizontal");
-        position.y = Input.GetAxisRaw("Vertical");
+        //position.x = Input.GetAxisRaw("Horizontal");
+        //position.y = Input.GetAxisRaw("Vertical");
+
+        
+        if (isMoving == false)
+        {
+            target = new Vector2(transform.position.x, transform.position.y);
+            transform.position = target;
+
+
+            // Left
+            if (Input.GetKey("left"))
+            {
+                position.x = -1;            // left
+                dir = 2;                    // left
+                //target_x = -1.0f;            // left
+
+                target = new Vector2(transform.position.x - 1.0f, transform.position.y);
+                target_x = transform.position.x - 1.0f;
+
+                //target = new Vector2(hspeed, vspeed);
+                isMoving = true;
+            }
+
+            // Right
+            if (Input.GetKey("right"))
+            {
+                position.x = 1;             // right
+                dir = 3;                    // right
+                //target_x = 1.0f;            // right
+
+                target = new Vector2(transform.position.x + 1.0f, transform.position.y);
+                target_x = transform.position.x + 1.0f;
+
+                //target = new Vector2(hspeed, vspeed);
+                isMoving = true;
+            }
+
+            // Up
+            if (Input.GetKey("up"))
+            {
+                position.y = 1;             // up
+                dir = 0;                    // up
+                //target_y = 1.0f;            // up
+
+                target = new Vector2(transform.position.x, transform.position.y + 1.0f);
+                target_y = transform.position.y + 1.0f;
+
+                //target = new Vector2(hspeed, vspeed);
+                isMoving = true;
+            }
+
+            // Down
+            if (Input.GetKey("down"))
+            {
+                position.y = -1;            // down
+                dir = 1;                    // down
+                //target_y = -1.0f;            // down
+
+                target = new Vector2(transform.position.x, transform.position.y - 1.0f);
+                target_y = transform.position.y - 1.0f;
+
+
+                //target = new Vector2(hspeed, vspeed);
+                isMoving = true;
+            }
+
+        }
+        else
+        {
+            
+
+            // Up
+            if (dir == 0)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, target, speed);
+
+                if (transform.position.y >= target_y)
+                {
+                    target_y = 0;
+                    isMoving = false;
+                }
+            }
+
+            // Down
+            if (dir == 1)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, target, speed);
+
+                if (transform.position.y <= target_y)
+                {
+                    target_y = 0;
+                    isMoving = false;
+                }
+            }
+
+            // Left
+            if ( dir == 2 )
+            {
+                transform.position = Vector2.MoveTowards(transform.position, target, speed);
+
+                if ( transform.position.x <= target_x )
+                {
+                    target_x = 0;
+                    isMoving = false;
+                }
+            }
+
+            // Right
+            if (dir == 3)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, target, speed);
+
+                if (transform.position.x >= target_x)
+                {
+                    target_x = 0;
+                    isMoving = false;
+                }
+            }
+        }
+
+
+
+
+
+
+        Debug.Log(isMoving);
+
+
+
+
+
+
+
 
 
         /*
@@ -95,16 +234,16 @@ public class PlayerMovement : MonoBehaviour
             {
 
             }
-            
-
-
-        
 
 
 
-        
+
+
+
+
+
         }
-        
+
 
     */
 
@@ -133,7 +272,7 @@ public class PlayerMovement : MonoBehaviour
             anim.SetBool("moving", false);
         }
 
-        
+
     }
 
     void MovePlayer()
@@ -141,7 +280,7 @@ public class PlayerMovement : MonoBehaviour
         // Change the Player's Position
         rb.MovePosition(transform.position + change * speed * Time.deltaTime);
     }*/
-    
+
 
 
 
@@ -150,23 +289,32 @@ public class PlayerMovement : MonoBehaviour
 
 
         // Key Press Test
+        /*
         if (position.x < 0)
-        {
-            dir = 2;
-        }
-        if (position.x > 0)
-        {
-            dir = 3;
-        }
-        if (position.y > 0)
-        {
-            dir = 0;
-        }
-        if (position.y < 0)
-        {
-            dir = 1;
-        }
-
+    {
+        dir = 2;
+        target_x -= 0.5f;
+        target = new Vector2(target_x, target_y);
+    }
+    if (position.x > 0)
+    {
+        dir = 3;
+        target_x += 0.5f;
+        target = new Vector2(target_x, target_y);
+    }
+    if (position.y > 0)
+    {
+        dir = 0;
+        target_y += 0.5f;
+        target = new Vector2(target_x, target_y);
+    }
+    if (position.y < 0)
+    {
+        dir = 1;
+        target_y -= 0.5f;
+        target = new Vector2(target_x, target_y);
+    }
+    */
 
 
 
@@ -289,16 +437,18 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-
+        /*
         if (!Input.GetKey(KeyCode.Z))
         {
-            rb.MovePosition(transform.position + position * speed * Time.deltaTime);
+            //rb.MovePosition(transform.position + position * speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, target, 0.1f);
         }
         else
         {
-            rb.MovePosition(transform.position + position * runSpeed * Time.deltaTime);
+            //rb.MovePosition(transform.position + position * runSpeed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, target, 0.2f);
         }
-
+        */
 
 
 
@@ -312,3 +462,21 @@ public class PlayerMovement : MonoBehaviour
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
