@@ -126,7 +126,7 @@ GameObject:
   m_Layer: 0
   m_Name: Sign
   m_TagString: pEvent
-  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -177,9 +177,9 @@ GameObject:
   - component: {fileID: 233732893}
   - component: {fileID: 233732892}
   m_Layer: 0
-  m_Name: Manager
+  m_Name: DialogManager
   m_TagString: Untagged
-  m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -17484,7 +17484,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1131671637
@@ -17582,7 +17582,7 @@ Animator:
   m_GameObject: {fileID: 1131671635}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: bcf174aafe36ba54a958a3942d143ed4, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0632fc977e79e6446bcd38cc1add0a79, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

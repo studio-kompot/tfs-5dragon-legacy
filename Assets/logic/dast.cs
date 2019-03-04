@@ -21,6 +21,7 @@ namespace dast
             faceplate = null;
             text = "";
         }
+    }
         public class DastInstance
         {
             static class Lex
@@ -29,7 +30,7 @@ namespace dast
                 public static Regex iftype = new Regex(@"if([a-z]{2})", RegexOptions.Compiled | RegexOptions.IgnoreCase);
             }
             string[] datar;
-            DastOutput outp = new DastOutput();
+            Dialogue outp = new Dialogue();
             int LineNumber = 0;
             bool quit = false;
             public DastInstance(string path, Database obj, DataStruct format)
@@ -45,14 +46,14 @@ namespace dast
                 }
                 catch (FileNotFoundException e)
                 {
-                    Debug.LogErrorFormat("{0}: Unable to load <i>{1}</i>: Unable to find file.", e.GetType().Name, path);
+                    Debug.LogErrorFormat("{0}: Unable to load <i>{1}</i>", e.GetType().Name, path);
                 }
             }
             /**
-             * 
+             * <summary></summary>
              * 
              */
-            IEnumerable<DastOutput> RunFile(Database obj)
+            IEnumerable<Dialogue> RunFile(Database obj)
             {
                 var comment = false;
                 string[] command;
@@ -91,4 +92,3 @@ namespace dast
             }
         }
     }
-}
