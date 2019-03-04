@@ -4,6 +4,8 @@ NOTE:
 The Code here needs to be organised, which I'll do later but for now,
 at least the basic movement works.
 
+SEE: https://www.youtube.com/watch?v=hkaysu1Z-N8 <"2D Animation in Unity (Tutorial)", YouTube>
+ for: how to make the animation work
 */
 
 
@@ -14,7 +16,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 
-
+    /*
     public Sprite aranWalkUpFrame1;
     public Sprite aranWalkUpFrame2;
     public Sprite aranWalkUpFrame3;
@@ -27,14 +29,15 @@ public class PlayerMovement : MonoBehaviour
     public Sprite aranWalkRightFrame1;
     public Sprite aranWalkRightFrame2;
     public Sprite aranWalkRightFrame3;
+    */
 
     public float speed;
     public float runSpeed;
 
+    public Animator animator;
 
     private Rigidbody2D rb;
     private Vector3 position;
-
 
     private bool isMoving = false;
     private float target_x, target_y;
@@ -43,20 +46,24 @@ public class PlayerMovement : MonoBehaviour
     private byte image_index = 0;
     private int image_speed_delay = 7;
     private int image_speed_delay_counter = 0;
-    private byte dir = 1;
     /*
-     * dir (Direction)
-     * 
-     * 0 = Up
-     * 1 = Down
-     * 2 = Left
-     * 3 = Right
-     * 
-     */
+ * dir (Direction)
+ * 
+ * 0 = Up
+ * 1 = Down
+ * 2 = Left
+ * 3 = Right
+ * 
+ */
+    public enum Direction
+    {
+        Up,
+        Down,
+        Left,
+        Right
+    }
 
-
-
-
+    private byte dir = 1;
 
     // Use this for initialization
     void Start()
@@ -66,31 +73,23 @@ public class PlayerMovement : MonoBehaviour
 
         //target_x = 0;
         //target_y = 0;
-        
 
+        animator = GetComponent<Animator>();
         target = new Vector2(transform.position.x, transform.position.y);
         transform.position = target;
 
         ///Debug.Log(target);
     }
 
-
-
-
-
-
     // Update is called once per frame
     void Update()
     {
-
-
-
         // Keyboard Inputs (Arrow UP, Arrow Down, Arrow Left and Arrow Right)
         //position.x = Input.GetAxisRaw("Horizontal");
         //position.y = Input.GetAxisRaw("Vertical");
 
-        
-        if (isMoving == false)
+        animator.SetBool("IsMoving", isMoving);
+        if (!isMoving)
         {
             target = new Vector2(transform.position.x, transform.position.y);
             transform.position = target;
@@ -102,6 +101,7 @@ public class PlayerMovement : MonoBehaviour
                 position.x = -1;            // left
                 dir = 2;                    // left
                 //target_x = -1.0f;            // left
+                animator.SetInteger("direction", dir);
 
                 target = new Vector2(transform.position.x - 1.0f, transform.position.y);
                 target_x = transform.position.x - 1.0f;
@@ -116,7 +116,7 @@ public class PlayerMovement : MonoBehaviour
                 position.x = 1;             // right
                 dir = 3;                    // right
                 //target_x = 1.0f;            // right
-
+                animator.SetInteger("direction", dir);
                 target = new Vector2(transform.position.x + 1.0f, transform.position.y);
                 target_x = transform.position.x + 1.0f;
 
@@ -130,7 +130,7 @@ public class PlayerMovement : MonoBehaviour
                 position.y = 1;             // up
                 dir = 0;                    // up
                 //target_y = 1.0f;            // up
-
+                animator.SetInteger("direction", dir);
                 target = new Vector2(transform.position.x, transform.position.y + 1.0f);
                 target_y = transform.position.y + 1.0f;
 
@@ -144,7 +144,7 @@ public class PlayerMovement : MonoBehaviour
                 position.y = -1;            // down
                 dir = 1;                    // down
                 //target_y = -1.0f;            // down
-
+                animator.SetInteger("direction", dir);
                 target = new Vector2(transform.position.x, transform.position.y - 1.0f);
                 target_y = transform.position.y - 1.0f;
 
@@ -156,327 +156,126 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            
-
-            // Up
-            if (dir == 0)
+            switch (dir)
             {
-                transform.position = Vector2.MoveTowards(transform.position, target, speed);
+                // Up
+                case 0:
+                    transform.position = Vector2.MoveTowards(transform.position, target, speed);
 
-                if (transform.position.y >= target_y)
-                {
-                    target_y = 0;
-                    isMoving = false;
-                }
+                    if (transform.position.y >= target_y)
+                    {
+                        target_y = 0;
+                        isMoving = false;
+                    }
+                    break;
+
+                // Down
+                case 1:
+                    transform.position = Vector2.MoveTowards(transform.position, target, speed);
+
+                    if (transform.position.y <= target_y)
+                    {
+                        target_y = 0;
+                        isMoving = false;
+                    }
+                    break;
+
+                // Left
+                case 2:
+                    transform.position = Vector2.MoveTowards(transform.position, target, speed);
+
+                    if (transform.position.x <= target_x)
+                    {
+                        target_x = 0;
+                        isMoving = false;
+                    }
+                    break;
+
+                // Right
+                case 3:
+                    transform.position = Vector2.MoveTowards(transform.position, target, speed);
+
+                    if (transform.position.x >= target_x)
+                    {
+                        target_x = 0;
+                        isMoving = false;
+                    }
+                    break;
             }
+            Debug.Log(isMoving);
 
-            // Down
-            if (dir == 1)
-            {
-                transform.position = Vector2.MoveTowards(transform.position, target, speed);
-
-                if (transform.position.y <= target_y)
-                {
-                    target_y = 0;
-                    isMoving = false;
-                }
-            }
-
-            // Left
-            if ( dir == 2 )
-            {
-                transform.position = Vector2.MoveTowards(transform.position, target, speed);
-
-                if ( transform.position.x <= target_x )
-                {
-                    target_x = 0;
-                    isMoving = false;
-                }
-            }
-
-            // Right
-            if (dir == 3)
-            {
-                transform.position = Vector2.MoveTowards(transform.position, target, speed);
-
-                if (transform.position.x >= target_x)
-                {
-                    target_x = 0;
-                    isMoving = false;
-                }
-            }
-        }
-
-
-
-
-
-
-        Debug.Log(isMoving);
-
-
-
-
-
-
-
-
-
-        /*
-        if (isMoving == false)
-        {
             /*
-            if (stop < 2)
+            if (isMoving == false)
             {
-                stop += 1;
+                /*
+                if (stop < 2)
+                {
+                    stop += 1;
+                }
+                if ( stop == 2 )
+                {
+
+                }
+
             }
-            if ( stop == 2 )
+
+            change = Vector3.zero;
+
+            // Keyboard Inputs (Arrow UP, Arrow Down, Arrow Left and Arrow Right)
+            change.x = Input.GetAxisRaw("Horizontal");
+            change.y = Input.GetAxisRaw("Vertical");
+
+            if (change != Vector3.zero)
             {
-
-            }
-
-
-
-
-
-
-
-
-        }
-
-
-    */
-
-
-
-
-
-
-
-        /*
-        change = Vector3.zero;
-
-        // Keyboard Inputs (Arrow UP, Arrow Down, Arrow Left and Arrow Right)
-        change.x = Input.GetAxisRaw("Horizontal");
-        change.y = Input.GetAxisRaw("Vertical");
-
-        if (change != Vector3.zero)
-        {
-            MovePlayer();
-            anim.SetFloat("moveX", change.x);
-            anim.SetFloat("moveY", change.y);
-            anim.SetBool("moving", true);
-        }
-        else
-        {
-            anim.SetBool("moving", false);
-        }
-
-
-    }
-
-    void MovePlayer()
-    {
-        // Change the Player's Position
-        rb.MovePosition(transform.position + change * speed * Time.deltaTime);
-    }*/
-
-
-
-
-
-
-
-
-        // Key Press Test
-        /*
-        if (position.x < 0)
-    {
-        dir = 2;
-        target_x -= 0.5f;
-        target = new Vector2(target_x, target_y);
-    }
-    if (position.x > 0)
-    {
-        dir = 3;
-        target_x += 0.5f;
-        target = new Vector2(target_x, target_y);
-    }
-    if (position.y > 0)
-    {
-        dir = 0;
-        target_y += 0.5f;
-        target = new Vector2(target_x, target_y);
-    }
-    if (position.y < 0)
-    {
-        dir = 1;
-        target_y -= 0.5f;
-        target = new Vector2(target_x, target_y);
-    }
-    */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        // Animation Test
-        if (image_speed_delay_counter < image_speed_delay)
-        {
-            image_speed_delay_counter += 1;
-        }
-        else
-        {
-            if (image_index < 3)
-            {
-                image_index += 1;
+                MovePlayer();
+                anim.SetFloat("moveX", change.x);
+                anim.SetFloat("moveY", change.y);
+                anim.SetBool("moving", true);
             }
             else
             {
-                image_index = 0;
+                anim.SetBool("moving", false);
             }
 
-            image_speed_delay_counter = 0;
+
         }
 
-        if (image_index == 0)
+        void MovePlayer()
         {
-            if (dir == 0)
-            {
-                gameObject.GetComponent<SpriteRenderer>().sprite = aranWalkUpFrame1;
-            }
-            if (dir == 1)
-            {
-                gameObject.GetComponent<SpriteRenderer>().sprite = aranWalkDownFrame1;
-            }
-            if (dir == 2)
-            {
-                gameObject.GetComponent<SpriteRenderer>().sprite = aranWalkLeftFrame1;
-            }
-            if (dir == 3)
-            {
-                gameObject.GetComponent<SpriteRenderer>().sprite = aranWalkRightFrame1;
-            }
+            // Change the Player's Position
+            rb.MovePosition(transform.position + change * speed * Time.deltaTime);
+        }*/
+
+
+            // Key Press Test
+            /*
+            if (position.x < 0)
+        {
+            dir = 2;
+            target_x -= 0.5f;
+            target = new Vector2(target_x, target_y);
         }
-        if (image_index == 1)
+        if (position.x > 0)
         {
-            if (dir == 0)
-            {
-                gameObject.GetComponent<SpriteRenderer>().sprite = aranWalkUpFrame2;
-            }
-            if (dir == 1)
-            {
-                gameObject.GetComponent<SpriteRenderer>().sprite = aranWalkDownFrame2;
-            }
-            if (dir == 2)
-            {
-                gameObject.GetComponent<SpriteRenderer>().sprite = aranWalkLeftFrame2;
-            }
-            if (dir == 3)
-            {
-                gameObject.GetComponent<SpriteRenderer>().sprite = aranWalkRightFrame2;
-            }
+            dir = 3;
+            target_x += 0.5f;
+            target = new Vector2(target_x, target_y);
         }
-        if (image_index == 2)
+        if (position.y > 0)
         {
-            if (dir == 0)
-            {
-                gameObject.GetComponent<SpriteRenderer>().sprite = aranWalkUpFrame1;
-            }
-            if (dir == 1)
-            {
-                gameObject.GetComponent<SpriteRenderer>().sprite = aranWalkDownFrame1;
-            }
-            if (dir == 2)
-            {
-                gameObject.GetComponent<SpriteRenderer>().sprite = aranWalkLeftFrame1;
-            }
-            if (dir == 3)
-            {
-                gameObject.GetComponent<SpriteRenderer>().sprite = aranWalkRightFrame1;
-            }
+            dir = 0;
+            target_y += 0.5f;
+            target = new Vector2(target_x, target_y);
         }
-        if (image_index == 3)
+        if (position.y < 0)
         {
-            if (dir == 0)
-            {
-                gameObject.GetComponent<SpriteRenderer>().sprite = aranWalkUpFrame3;
-            }
-            if (dir == 1)
-            {
-                gameObject.GetComponent<SpriteRenderer>().sprite = aranWalkDownFrame3;
-            }
-            if (dir == 2)
-            {
-                gameObject.GetComponent<SpriteRenderer>().sprite = aranWalkLeftFrame3;
-            }
-            if (dir == 3)
-            {
-                gameObject.GetComponent<SpriteRenderer>().sprite = aranWalkRightFrame3;
-            }
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-        /*
-        if (!Input.GetKey(KeyCode.Z))
-        {
-            //rb.MovePosition(transform.position + position * speed * Time.deltaTime);
-            transform.position = Vector2.MoveTowards(transform.position, target, 0.1f);
-        }
-        else
-        {
-            //rb.MovePosition(transform.position + position * runSpeed * Time.deltaTime);
-            transform.position = Vector2.MoveTowards(transform.position, target, 0.2f);
+            dir = 1;
+            target_y -= 0.5f;
+            target = new Vector2(target_x, target_y);
         }
         */
-
-
-
+        }
 
     }
-
-
-
-
-
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

@@ -5,7 +5,7 @@ using UnityEngine;
 public class exit : MonoBehaviour {
 
     // Use this for initialization
-    void CommitDie() {
+    public void CommitDie() {
         Application.Quit();
         }
 }

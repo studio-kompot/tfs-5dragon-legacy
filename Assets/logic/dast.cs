@@ -8,14 +8,14 @@ using UnityEngine;
 
 namespace dast
 {
-    public class Dialogue
+    public class Dialog
     {
-        bool quit = false;
-        string name;
-        string faceplate;
-        string text;
+        public bool quit = false;
+        public string name;
+        public string faceplate;
+        public string text;
         List<string> askchoices;
-        public Dialogue()
+        public Dialog()
         {
             name = null;
             faceplate = null;
@@ -30,7 +30,7 @@ namespace dast
                 public static Regex iftype = new Regex(@"if([a-z]{2})", RegexOptions.Compiled | RegexOptions.IgnoreCase);
             }
             string[] datar;
-            Dialogue outp = new Dialogue();
+            Dialog outp = new Dialog();
             int LineNumber = 0;
             bool quit = false;
             public DastInstance(string path, Database obj, DataStruct format)
@@ -53,7 +53,7 @@ namespace dast
              * <summary></summary>
              * 
              */
-            IEnumerable<Dialogue> RunFile(Database obj)
+            IEnumerable<Dialog> RunFile(Database obj)
             {
                 var comment = false;
                 string[] command;
