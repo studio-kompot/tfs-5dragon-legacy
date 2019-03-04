@@ -8,10 +8,10 @@
 
 Project Structure
 -----------------
-- `def` Enemy and dialog definitions
+- `def` Enemy, character and dialog definitions
 - `graphics` Graphics files and sprites
 - `logic` All the code and logic of the game
-- `misc` File with tentative inclusion in the project, and off-repo links to said tentative inclusions.
+- `misc` Files with tentative inclusion in the project, off-repo links to said tentative inclusions, and maintanaince scripts.
 - `sound` All audio and background tracks
 - `unity` Unity and unity ~~accessories~~files.
 

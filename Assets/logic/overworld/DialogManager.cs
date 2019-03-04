@@ -4,7 +4,7 @@ using UnityEngine;
 using dast;
 
 public class DialogManager : MonoBehaviour {
-
+//TODO: implement method
     private Queue<Dialog> inp;
 	// Use this for initialization
 	void Start () {
