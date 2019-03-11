@@ -49,9 +49,9 @@ public class PlayerMovement : MonoBehaviour
 	}
 
 	private byte dir = 1;
-
-	// Use this for initialization
-	void Start() {
+#region Methods
+    // Use this for initialization
+    void Start() {
 		rb = GetComponent<Rigidbody2D>();
 		//anim = GetComponent<Animator>();
 
@@ -65,8 +65,8 @@ public class PlayerMovement : MonoBehaviour
 		///Debug.Log(target);
 	}
 
-	// Update is called once per frame
-	void Update() {
+    // Update is called once per frame
+    void Update() {
 		// Keyboard Inputs (Arrow UP, Arrow Down, Arrow Left and Arrow Right)
 		//position.x = Input.GetAxisRaw("Horizontal");
 		//position.y = Input.GetAxisRaw("Vertical");
@@ -193,8 +193,7 @@ public class PlayerMovement : MonoBehaviour
 					break;
 			}
 			if(debug) Debug.Log(isMoving);
-			/*
-			   if (isMoving == false)
+            /* if (isMoving == false)
 			   {
 			   if (stop < 2)
 			   {
@@ -259,9 +258,9 @@ public class PlayerMovement : MonoBehaviour
 			   dir = 1;
 			   target_y -= 0.5f;
 			   target = new Vector2(target_x, target_y);
-			   }
-			   */
-	}
+			   } */
+#endregion
+        }
 
 }
 }

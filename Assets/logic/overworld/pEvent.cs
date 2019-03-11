@@ -23,6 +23,7 @@ public class pEvent : MonoBehaviour {
         DialogManager.instance.Init(dialog);
     }
     public void Update() {
+        //TODO: Add more appropriate trigger
         if (Input.GetKeyDown(KeyCode.I)) DialogManager.instance.Init(dialog);
 
     }

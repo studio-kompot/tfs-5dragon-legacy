@@ -17,7 +17,7 @@ public class DialogManager : MonoBehaviour {
     public Image DFaceplate;
     public Queue<DialogBase.DFrame> dq;
     public float delay = 0.001f;
-
+#region Methods
     void Start() {
         dq = new Queue<DialogBase.DFrame>();
     }
@@ -39,10 +39,10 @@ public class DialogManager : MonoBehaviour {
             DName.text = current.name;
             DText.text = current.text;
             DFaceplate.sprite = current.faceplate;
-            //StartCoroutine(Scroll(current));
+            StartCoroutine(Scroll(current));
         }
     }
-    /*
+    
     IEnumerator Scroll (DialogBase.DFrame frame) {
         DText.text = "";
         foreach(char i in frame.text.ToCharArray()) {
@@ -51,5 +51,5 @@ public class DialogManager : MonoBehaviour {
             yield return null;
         }
     }
-    */
+#endregion
 }
