@@ -1,22 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using dast;
 
 public class pEvent : MonoBehaviour {
-	///<summary>Initates "Pass mode", meaning the player can pass onto the object and activate it from there.</summary>
-	public bool PassMode;
-	GameObject manager;
-	Dialog OutArray;
-	// Use this for initialization
-	void Start () {
-		manager = GameObject.Find("Manager");
-	}
-	// Update is called once per frame
-	void Update () {
+    /**
+     *<summary>
+     *<list type="number">
 
-	}
-	private void OnCollisionEnter(Collision c) {
-		manager.SendMessage("StartDialogue",OutArray);
-	}
+     * <item>
+     * <term>Sign</term>
+     * <description>A static object that doesn't move</description>
+     * </item>
+     *</list>
+     *</summary>
+     */
+    public enum Type { debug, sign, npc, cutscene }
+    public Type mode;
+    public DialogBase dialog;
+    public GameObject DialogPanel;
+
+    public void Trigger() {
+        DialogManager.instance.Init(dialog);
+    }
+    public void Update() {
+        if (Input.GetKeyDown(KeyCode.I)) DialogManager.instance.Init(dialog);
+
+    }
 }

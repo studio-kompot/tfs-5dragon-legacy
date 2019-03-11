@@ -15,27 +15,31 @@ Project Structure
 - `sound` All audio and background tracks
 - `unity` Unity and unity ~~accessories~~files.
 
+NB
+--
+Files with the extenstion .gz are **archived**, and may be legacy code or a
+
 Main links
 ----------
 
 ##Trello:
-- https://trello.com/b/CLcHaZaW/agile-tasklist-for-game
-- https://trello.com/invite/b/CLcHaZaW/596ae0719fbdf2e2cc76aa24693dd9a5/agile-tasklist-for-game (Invite link)
+- <https://trello.com/b/CLcHaZaW/agile-tasklist-for-game>
+- <https://trello.com/invite/b/CLcHaZaW/596ae0719fbdf2e2cc76aa24693dd9a5/agile-tasklist-for-game (Invite link)>
 - Agile development queue (with annotations)
 ##Slack:
-- https://kompot-tfs.slack.com/
+- <https://kompot-tfs.slack.com/>
 - Research and planning chat, as well as secondary file storage & communication
 ##WhatsApp:
-- https://chat.whatsapp.com/FMY3vHiqBRHIod3fdxCxbu
+- <https://chat.whatsapp.com/FMY3vHiqBRHIod3fdxCxbu>
 - Semi-formal chat, general purpose, intended primary communication channel
 ##Google Drive:
-- https://drive.google.com/drive/folders/1GUgiy8EMZDn8cgWhRgNoMHHtF2FGHqCs?usp=sharing
+- <https://drive.google.com/drive/folders/1GUgiy8EMZDn8cgWhRgNoMHHtF2FGHqCs?usp=sharing>
 - Primary file storage
 ##Unity:
-- https://id.unity.com/en/organizations/kompot-studios
+- <https://id.unity.com/en/organizations/kompot-studios>
 - (Join is invite only, message Archie about it)
 ##GitHub:
-- https://github.com/kompot-studios
+- <https://github.com/kompot-studios>
 - (To be used in the post-demo period, check the guide for setting it all up)
 
 
@@ -44,22 +48,6 @@ Media links
 - [What is YAML?](https://en.wikipedia.org/wiki/YAML)
 - [DaST help](http://atlasjan.sdf.org/dl/dast-doc/dast.html)
 
-Attribution
------------
-
-- [Peek-Door Quest by Rolemusic][peekdoor] is licensed under an [Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) license
-- [The Little Broth by Rolemusic][littlebroth] is licensed under an [Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) license
-- [Flamenco Rhythm by Sunsearcher][flamenco1] is licensed under a Attribution-ShareAlike 3.0 International License.
-- [Songs from an Unmade Forest World (Loops)][forestworld] by Visager, is licensed under a Attribution-ShareAlike License.
-- "Dark Sanctum (Boss Fight) [Loop]" "Ice Cave [Loop]", & "Shrine are from [Songs From An Unmade World][unmadeworld] by Visager and is licensed under a Attribution License.]
-- "Miniboss Fight [Loop]", "Battle! [Intro]", "Battle! [Loop] ", & " Witch's Hut [Loop]" are from[Songs From An Unmade World 2][unmadeworld2] by Visager is licensed under a [Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) license.
-
-[peekdoor]: http://freemusicarchive.org/music/Rolemusic/~/Peek-Door_Quest
-[littlebroth]: http://freemusicarchive.org/music/Rolemusic/The_Black_Dot/09_rolemusic_-_the_little_broth
-[flamenco1]: http://freemusicarchive.org/music/Sunsearcher/Sunsearcher_Spirit/05_-_Flamenco_Rhythm
-[unmadeworld]: https://freemusicarchive.org/music/Visager/Songs_From_An_Unmade_World/
-[unmadeworld2]: https://freemusicarchive.org/music/Visager/Songs_From_An_Unmade_World_2/
-[forestworld]: https://freemusicarchive.org/music/Visager/Songs_from_an_Unmade_Forest_World/
 
 License
 -------
