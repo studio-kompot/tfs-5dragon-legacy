@@ -3,6 +3,7 @@
    at least the basic movement works.
 
 FIXME: Latency issue with the animator updating the animation state.
+FIXME: Player gets stuck
 
 SEE: https://www.youtube.com/watch?v=hkaysu1Z-N8 <"2D Animation in Unity (Tutorial)", YouTube>
 for: how to make the animation work
@@ -90,7 +91,8 @@ public class PlayerMovement : MonoBehaviour
 
 				//target = new Vector2(hspeed, vspeed);
 				isMoving = true;
-			}
+                animator.SetBool("IsMoving", isMoving);
+            }
 
 			// Right
 			if (Input.GetKey("right"))
@@ -104,7 +106,8 @@ public class PlayerMovement : MonoBehaviour
 
 				//target = new Vector2(hspeed, vspeed);
 				isMoving = true;
-			}
+                animator.SetBool("IsMoving", isMoving);
+            }
 
 			// Up
 			if (Input.GetKey("up"))
@@ -118,7 +121,8 @@ public class PlayerMovement : MonoBehaviour
 
 				//target = new Vector2(hspeed, vspeed);
 				isMoving = true;
-			}
+                animator.SetBool("IsMoving", isMoving);
+            }
 
 			// Down
 			if (Input.GetKey("down"))
@@ -132,7 +136,8 @@ public class PlayerMovement : MonoBehaviour
 
 				//target = new Vector2(hspeed, vspeed);
 				isMoving = true;
-			}
+                animator.SetBool("IsMoving", isMoving);
+            }
 		} else {
 			switch (dir) {
 				// Up
@@ -143,7 +148,9 @@ public class PlayerMovement : MonoBehaviour
 					{
 						target_y = 0;
 						isMoving = false;
-					}
+                        animator.SetBool("IsMoving", isMoving);
+                        animator.SetInteger("direction", dir);
+                    }
 					break;
 
 					// Down
@@ -154,7 +161,9 @@ public class PlayerMovement : MonoBehaviour
 					{
 						target_y = 0;
 						isMoving = false;
-					}
+                        animator.SetBool("IsMoving", isMoving);
+                        animator.SetInteger("direction", dir);
+                    }
 					break;
 
 					// Left
@@ -165,7 +174,9 @@ public class PlayerMovement : MonoBehaviour
 					{
 						target_x = 0;
 						isMoving = false;
-					}
+                        animator.SetBool("IsMoving", isMoving);
+                        animator.SetInteger("direction", dir);
+                    }
 					break;
 
 					// Right
@@ -176,7 +187,9 @@ public class PlayerMovement : MonoBehaviour
 					{
 						target_x = 0;
 						isMoving = false;
-					}
+                        animator.SetBool("IsMoving", isMoving);
+                        animator.SetInteger("direction", dir);
+                    }
 					break;
 			}
 			if(debug) Debug.Log(isMoving);

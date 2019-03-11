@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using BitUtils;
+
 
 public class Character : ScriptableObject {
 
@@ -20,7 +20,7 @@ public class Character : ScriptableObject {
     public int cha;
     public int hp;
     public int mp;
-    public BitFlags status;
+    public BitArray status;
 }
 
 [CreateAssetMenu(fileName = "New Enemy", menuName = "Enemy")]
