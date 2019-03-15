@@ -8,16 +8,21 @@ public class DialogButton : MonoBehaviour {
 
     void Awake() {
         beep = GetComponent<AudioSource>();
+#if UNITY_EDITOR
         if (beep == null) Debug.Log("it's not there chief");
+#endif
     }
 
     public void NextLine() {
         if (DialogManager.instance != null) {
             DialogManager.instance.Send();
             beep.Play();
-        } else {
+        }
+#if UNITY_EDITOR
+        else {
             Debug.Log("DialogManager's not there chief");
         }
+#endif
     }
 	
 	// Update is called once per frame

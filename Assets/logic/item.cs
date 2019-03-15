@@ -3,32 +3,41 @@ using System.Collections;
 using System.Collections.Generic;
 
 #region Header
-public interface IItem {
-    string id;
+
+public class Item {
+
     int count;
     string description;
-    void doAction();
+    
 }
 
-abstract public class StatPotion : IItem {
-    string id = "potion-stat-";
+
+abstract public class StatPotion : Item {
     int count = 0;
     string description = "";
-    int toAdd;
+    int type;
+
+    string id {
+        get { return id; }
+        set { id = "potion-stat-" + value; }
+    }
+
+    void doAction() {
+        throw new System.NotImplementedException();
+    }
+
     enum Type {
         health,
         magic,
         maxhealth,
         maxmagic
     }
-    void doAction() {
 
-    }
-}
-#endregion
+    #endregion
 
-public class SmallHealth : StatPotion {
-    void SmallHealth() {
-
+    public class SmallHealth : StatPotion {
+        SmallHealth() {
+            type = Type.health;
+        }
     }
 }
