@@ -5,12 +5,9 @@ using System.Collections.Generic;
 #region Header
 
 public class Item {
-
     int count;
     string description;
-    
 }
-
 
 abstract public class StatPotion : Item {
     int count = 0;
@@ -32,12 +29,11 @@ abstract public class StatPotion : Item {
         maxhealth,
         maxmagic
     }
-
     #endregion
 
     public class SmallHealth : StatPotion {
         SmallHealth() {
-            type = Type.health;
+            type = (int)Type.health;
         }
     }
 }

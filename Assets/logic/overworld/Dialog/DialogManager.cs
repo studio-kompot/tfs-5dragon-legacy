@@ -40,7 +40,7 @@ public class DialogManager : MonoBehaviour {
     public void Send() {
         if (dq.Count == 0) {
             DialogPanel.SetActive(false);
-            OptionsContainer.setActive(isOptionsType);
+            OptionsContainer.SetActive(isOptionsType);
             inDialog = DialogPanel.activeInHierarchy;
             return;
         } else {

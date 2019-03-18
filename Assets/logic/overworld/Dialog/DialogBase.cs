@@ -14,6 +14,11 @@ public class DialogBase : ScriptableObject {
         /// <summary>What's being said</summary>
         [TextArea(4, 8)]
         public string text;
+        public Color bgcolor;
+        //public int framenumber;
+        //public string[] choicelist;
+
     }
     public DFrame[] DialogData;
+
 }
