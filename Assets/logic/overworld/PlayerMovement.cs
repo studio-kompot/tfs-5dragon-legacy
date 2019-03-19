@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
 	private Vector3 position;
 
 	private bool isMoving = false;
+    private bool isRun = false;
 	[SerializeField]
 		public bool debug;
 	private float target_x, target_y;
@@ -138,12 +139,33 @@ public class PlayerMovement : MonoBehaviour
 				isMoving = true;
                 animator.SetBool("IsMoving", isMoving);
             }
-		} else {
+
+
+
+            // Press the 'X' button to Run
+            isRun = false;
+
+            if (Input.GetKey(KeyCode.X))
+            {
+                isRun = true;
+            }
+
+
+        } else {
 			switch (dir) {
 				// Up
 				case 0:
-					transform.position = Vector2.MoveTowards(transform.position, target, speed);
 
+                    if ( isRun == true )
+                    {
+                        transform.position = Vector2.MoveTowards(transform.position, target, runSpeed);     // Running (player moves faster)
+                    }
+                    else
+                    {
+                        transform.position = Vector2.MoveTowards(transform.position, target, speed);        // Walking (player moves at a normal speed)
+                    }
+
+                    // When the player reaches to the next grid
 					if (transform.position.y >= target_y)
 					{
 						target_y = 0;
@@ -155,9 +177,17 @@ public class PlayerMovement : MonoBehaviour
 
 					// Down
 				case 1:
-					transform.position = Vector2.MoveTowards(transform.position, target, speed);
+                    if (isRun == true)
+                    {
+                        transform.position = Vector2.MoveTowards(transform.position, target, runSpeed);     // Running (player moves faster)
+                    }
+                    else
+                    {
+                        transform.position = Vector2.MoveTowards(transform.position, target, speed);        // Walking (player moves at a normal speed)
+                    }
 
-					if (transform.position.y <= target_y)
+                    // When the player reaches to the next grid
+                    if (transform.position.y <= target_y)
 					{
 						target_y = 0;
 						isMoving = false;
@@ -168,9 +198,17 @@ public class PlayerMovement : MonoBehaviour
 
 					// Left
 				case 2:
-					transform.position = Vector2.MoveTowards(transform.position, target, speed);
+                    if (isRun == true)
+                    {
+                        transform.position = Vector2.MoveTowards(transform.position, target, runSpeed);     // Running (player moves faster)
+                    }
+                    else
+                    {
+                        transform.position = Vector2.MoveTowards(transform.position, target, speed);        // Walking (player moves at a normal speed)
+                    }
 
-					if (transform.position.x <= target_x)
+                    // When the player reaches to the next grid
+                    if (transform.position.x <= target_x)
 					{
 						target_x = 0;
 						isMoving = false;
@@ -181,87 +219,35 @@ public class PlayerMovement : MonoBehaviour
 
 					// Right
 				case 3:
-					transform.position = Vector2.MoveTowards(transform.position, target, speed);
+                    if (isRun == true)
+                    {
+                        transform.position = Vector2.MoveTowards(transform.position, target, runSpeed);     // Running (player moves faster)
+                    }
+                    else
+                    {
+                        transform.position = Vector2.MoveTowards(transform.position, target, speed);        // Walking (player moves at a normal speed)
+                    }
 
-					if (transform.position.x >= target_x)
-					{
-						target_x = 0;
-						isMoving = false;
+                    // When the player reaches to the next grid
+                    if (transform.position.x >= target_x)
+                    {
+                        target_x = 0;
+                        isMoving = false;
                         animator.SetBool("IsMoving", isMoving);
                         animator.SetInteger("direction", dir);
                     }
 					break;
 			}
-			if(debug) Debug.Log(isMoving);
-            /* if (isMoving == false)
-			   {
-			   if (stop < 2)
-			   {
-			   stop += 1;
-			   }
-			   if ( stop == 2 )
-			   {
-
-			   }
-
-			   }
-
-			   change = Vector3.zero;
-
-			// Keyboard Inputs (Arrow UP, Arrow Down, Arrow Left and Arrow Right)
-			change.x = Input.GetAxisRaw("Horizontal");
-			change.y = Input.GetAxisRaw("Vertical");
-
-			if (change != Vector3.zero)
-			{
-			MovePlayer();
-			anim.SetFloat("moveX", change.x);
-			anim.SetFloat("moveY", change.y);
-			anim.SetBool("moving", true);
-			}
-			else
-			{
-			anim.SetBool("moving", false);
-			}
+            
 
 
-			}
 
-			void MovePlayer()
-			{
-			// Change the Player's Position
-			rb.MovePosition(transform.position + change * speed * Time.deltaTime);
-			}
-
-
-			// Key Press Test
-			   if (position.x < 0)
-			   {
-			   dir = 2;
-			   target_x -= 0.5f;
-			   target = new Vector2(target_x, target_y);
-			   }
-			   if (position.x > 0)
-			   {
-			   dir = 3;
-			   target_x += 0.5f;
-			   target = new Vector2(target_x, target_y);
-			   }
-			   if (position.y > 0)
-			   {
-			   dir = 0;
-			   target_y += 0.5f;
-			   target = new Vector2(target_x, target_y);
-			   }
-			   if (position.y < 0)
-			   {
-			   dir = 1;
-			   target_y -= 0.5f;
-			   target = new Vector2(target_x, target_y);
-			   } */
+			///Debug.Log(isMoving);
+           
 #endregion
         }
-
-}
+        
+    }
+    
 }
 
