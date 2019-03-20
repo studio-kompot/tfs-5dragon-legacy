@@ -34,3 +34,7 @@ public class PartyMember : Character {
     public int exp;
     //Inventory inventory;
 }
+
+public static class PartyData {
+    public static List<PartyMember> partyMembers;
+}

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - pEvent
   - Solid
+  - Container
   layers:
   - Default
   - TransparentFX
