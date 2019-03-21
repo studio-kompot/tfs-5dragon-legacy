@@ -21,13 +21,19 @@ public class PlayerMovement : MonoBehaviour
 	public float runSpeed;
 
 	public Animator animator;
+    
+    public static bool canMoveUp = true;
+    public static bool canMoveDown = true;
+    public static bool canMoveLeft = true;
+    public static bool canMoveRight = true;
 
-	private Rigidbody2D rb;
+    private Rigidbody2D rb;
 	private Vector3 position;
+    private Vector3 player_collision;
 
-	private bool isMoving = false;
+    private bool isMoving = false;
     private bool isRun = false;
-	[SerializeField]
+    [SerializeField]
 		public bool debug;
 	private float target_x, target_y;
 	private Vector2 target;
@@ -55,24 +61,22 @@ public class PlayerMovement : MonoBehaviour
     void Start() {
 		rb = GetComponent<Rigidbody2D>();
 		//anim = GetComponent<Animator>();
-
-		//target_x = 0;
-		//target_y = 0;
+        
 
 		animator = GetComponent<Animator>();
 		target = new Vector2(transform.position.x, transform.position.y);
 		transform.position = target;
 
-		///Debug.Log(target);
-	}
+        
+    }
 
     // Update is called once per frame
     void Update() {
-		// Keyboard Inputs (Arrow UP, Arrow Down, Arrow Left and Arrow Right)
-		//position.x = Input.GetAxisRaw("Horizontal");
-		//position.y = Input.GetAxisRaw("Vertical");
 
-		animator.SetBool("IsMoving", isMoving);
+        //Debug.Log(canMoveLeft);
+        
+
+        animator.SetBool("IsMoving", isMoving);
 		if (!isMoving)
 		{
 			target = new Vector2(transform.position.x, transform.position.y);
@@ -82,62 +86,77 @@ public class PlayerMovement : MonoBehaviour
 			// Left
 			if (Input.GetKey("left"))
 			{
-				position.x = -1;            // left
-				dir = 2;                    // left
-				//target_x = -1.0f;            // left
-				animator.SetInteger("direction", dir);
+                if ( canMoveLeft == true )
+                {
+                    position.x = -1;            // left
+                    dir = 2;                    // left
+                    //target_x = -1.0f;            // left
+                    animator.SetInteger("direction", dir);
 
-				target = new Vector2(transform.position.x - 1.0f, transform.position.y);
-				target_x = transform.position.x - 1.0f;
+                    target = new Vector2(transform.position.x - 1.0f, transform.position.y);
+                    target_x = transform.position.x - 1.0f;
 
-				//target = new Vector2(hspeed, vspeed);
-				isMoving = true;
-                animator.SetBool("IsMoving", isMoving);
+                    //target = new Vector2(hspeed, vspeed);
+                    isMoving = true;
+                    animator.SetBool("IsMoving", isMoving);
+                }
             }
 
 			// Right
 			if (Input.GetKey("right"))
 			{
-				position.x = 1;             // right
-				dir = 3;                    // right
-				//target_x = 1.0f;            // right
-				animator.SetInteger("direction", dir);
-				target = new Vector2(transform.position.x + 1.0f, transform.position.y);
-				target_x = transform.position.x + 1.0f;
+                if ( canMoveRight == true )
+                {
+                    position.x = 1;             // right
+                    dir = 3;                    // right
+                    //target_x = 1.0f;            // right
+                    animator.SetInteger("direction", dir);
+                    target = new Vector2(transform.position.x + 1.0f, transform.position.y);
+                    target_x = transform.position.x + 1.0f;
 
-				//target = new Vector2(hspeed, vspeed);
-				isMoving = true;
-                animator.SetBool("IsMoving", isMoving);
+                    //target = new Vector2(hspeed, vspeed);
+                    isMoving = true;
+                    animator.SetBool("IsMoving", isMoving);
+                }
+				
             }
 
 			// Up
 			if (Input.GetKey("up"))
 			{
-				position.y = 1;             // up
-				dir = 0;                    // up
-				//target_y = 1.0f;            // up
-				animator.SetInteger("direction", dir);
-				target = new Vector2(transform.position.x, transform.position.y + 1.0f);
-				target_y = transform.position.y + 1.0f;
+                if ( canMoveUp == true )
+                {
+                    position.y = 1;             // up
+                    dir = 0;                    // up
+                    //target_y = 1.0f;            // up
+                    animator.SetInteger("direction", dir);
+                    target = new Vector2(transform.position.x, transform.position.y + 1.0f);
+                    target_y = transform.position.y + 1.0f;
 
-				//target = new Vector2(hspeed, vspeed);
-				isMoving = true;
-                animator.SetBool("IsMoving", isMoving);
+                    //target = new Vector2(hspeed, vspeed);
+                    isMoving = true;
+                    animator.SetBool("IsMoving", isMoving);
+                }
+				
             }
 
 			// Down
 			if (Input.GetKey("down"))
 			{
-				position.y = -1;            // down
-				dir = 1;                    // down
-				//target_y = -1.0f;            // down
-				animator.SetInteger("direction", dir);
-				target = new Vector2(transform.position.x, transform.position.y - 1.0f);
-				target_y = transform.position.y - 1.0f;
+                if ( canMoveDown == true )
+                {
+                    position.y = -1;            // down
+                    dir = 1;                    // down
+                    //target_y = -1.0f;            // down
+                    animator.SetInteger("direction", dir);
+                    target = new Vector2(transform.position.x, transform.position.y - 1.0f);
+                    target_y = transform.position.y - 1.0f;
 
-				//target = new Vector2(hspeed, vspeed);
-				isMoving = true;
-                animator.SetBool("IsMoving", isMoving);
+                    //target = new Vector2(hspeed, vspeed);
+                    isMoving = true;
+                    animator.SetBool("IsMoving", isMoving);
+                }
+				
             }
 
 
@@ -150,6 +169,8 @@ public class PlayerMovement : MonoBehaviour
                 isRun = true;
             }
 
+
+            
 
         } else {
 			switch (dir) {
@@ -242,11 +263,14 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-			///Debug.Log(isMoving);
+			
            
 #endregion
         }
+
         
+
+
     }
     
 }
