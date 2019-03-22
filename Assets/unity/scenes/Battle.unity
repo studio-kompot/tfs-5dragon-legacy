@@ -410,7 +410,7 @@ GameObject:
   - component: {fileID: 338547002}
   - component: {fileID: 338547003}
   m_Layer: 0
-  m_Name: ModelManager
+  m_Name: TurnManager
   m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1592,12 +1592,12 @@ Prefab:
     - target: {fileID: 224980849906105280, guid: 57b269c164b339646804ed8e6c8a4228,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 74
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 224980849906105280, guid: 57b269c164b339646804ed8e6c8a4228,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 57.5
+      value: 57
       objectReference: {fileID: 0}
     - target: {fileID: 224980849906105280, guid: 57b269c164b339646804ed8e6c8a4228,
         type: 2}

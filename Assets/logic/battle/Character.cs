@@ -32,7 +32,7 @@ public class Enemy : Character {
 [CreateAssetMenu(fileName = "New Party Member", menuName = "Party Member")]
 public class PartyMember : Character {
     public int exp;
-    //Inventory inventory;
+    Dictionary<string, InvItem> inventory;
 }
 
 public static class PartyData {

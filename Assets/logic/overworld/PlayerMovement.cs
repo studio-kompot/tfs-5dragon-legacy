@@ -14,80 +14,71 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
-{
+public class PlayerMovement : MonoBehaviour {
 
-	public float speed;
-	public float runSpeed;
+#region Variables
+    public float speed;
+    public float runSpeed;
 
-	public Animator animator;
-    
+    public Animator animator;
+
+    BitArray AvalibleDirections = new BitArray(4, true);
     public static bool canMoveUp = true;
     public static bool canMoveDown = true;
     public static bool canMoveLeft = true;
     public static bool canMoveRight = true;
 
     private Rigidbody2D rb;
-	private Vector3 position;
+    private Vector3 position;
     private Vector3 player_collision;
 
     private bool isMoving = false;
     private bool isRun = false;
     [SerializeField]
-		public bool debug;
-	private float target_x, target_y;
-	private Vector2 target;
-	private byte stop = 0;
-	/*
+    public bool debug;
+    private float target_x, target_y;
+    private Vector2 target;
+    //private byte stop = 0;
+
+    /*
 	 * dir (Direction)
 	 * 
 	 * 0 = Up
 	 * 1 = Down
 	 * 2 = Left
 	 * 3 = Right
-	 * 
 	 */
-	public enum Direction
-	{
-		Up,
-		Down,
-		Left,
-		Right
-	}
+    public enum Direction {
+        Up,
+        Down,
+        Left,
+        Right
+    }
 
-	private byte dir = 1;
-#region Methods
+    private byte dir = 1;
+#endregion
+    #region Methods
     // Use this for initialization
     void Start() {
-		rb = GetComponent<Rigidbody2D>();
-		//anim = GetComponent<Animator>();
-        
+        rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        target = new Vector2(transform.position.x, transform.position.y);
+        transform.position = target;
 
-		animator = GetComponent<Animator>();
-		target = new Vector2(transform.position.x, transform.position.y);
-		transform.position = target;
-
-        
     }
 
     // Update is called once per frame
     void Update() {
 
         //Debug.Log(canMoveLeft);
-        
 
         animator.SetBool("IsMoving", isMoving);
-		if (!isMoving)
-		{
-			target = new Vector2(transform.position.x, transform.position.y);
-			transform.position = target;
+        if (!isMoving) {
+            target = new Vector2(transform.position.x, transform.position.y);
+            transform.position = target;
 
-
-			// Left
-			if (Input.GetKey("left"))
-			{
-                if ( canMoveLeft == true )
-                {
+            // Left
+            if (Input.GetKey("left") && (canMoveLeft /*|| AvalibleDirections[Direction.Left]*/)) {
                     position.x = -1;            // left
                     dir = 2;                    // left
                     //target_x = -1.0f;            // left
@@ -100,13 +91,9 @@ public class PlayerMovement : MonoBehaviour
                     isMoving = true;
                     animator.SetBool("IsMoving", isMoving);
                 }
-            }
 
-			// Right
-			if (Input.GetKey("right"))
-			{
-                if ( canMoveRight == true )
-                {
+            // Right
+            if (Input.GetKey("right") && (canMoveRight /*|| AvalibleDirections[Direction.Right]*/)) {
                     position.x = 1;             // right
                     dir = 3;                    // right
                     //target_x = 1.0f;            // right
@@ -118,14 +105,9 @@ public class PlayerMovement : MonoBehaviour
                     isMoving = true;
                     animator.SetBool("IsMoving", isMoving);
                 }
-				
-            }
 
-			// Up
-			if (Input.GetKey("up"))
-			{
-                if ( canMoveUp == true )
-                {
+            // Up
+            if (Input.GetKey("up") && (canMoveUp /*|| AvalibleDirections[Direction.Up] */)) {
                     position.y = 1;             // up
                     dir = 0;                    // up
                     //target_y = 1.0f;            // up
@@ -137,14 +119,9 @@ public class PlayerMovement : MonoBehaviour
                     isMoving = true;
                     animator.SetBool("IsMoving", isMoving);
                 }
-				
-            }
 
-			// Down
-			if (Input.GetKey("down"))
-			{
-                if ( canMoveDown == true )
-                {
+            // Down
+            if (Input.GetKey("down") && (canMoveDown /*|| AvalibleDirections[Direction.Down] */)) {
                     position.y = -1;            // down
                     dir = 1;                    // down
                     //target_y = -1.0f;            // down
@@ -156,122 +133,71 @@ public class PlayerMovement : MonoBehaviour
                     isMoving = true;
                     animator.SetBool("IsMoving", isMoving);
                 }
-				
-            }
-
-
 
             // Press the 'X' button to Run
-            isRun = false;
-
-            if (Input.GetKey(KeyCode.X))
-            {
-                isRun = true;
-            }
-
-
-            
+            isRun = Input.GetKey(KeyCode.X);
 
         } else {
-			switch (dir) {
-				// Up
-				case 0:
+            switch (dir) {
+                // Up
+                case 0:
 
-                    if ( isRun == true )
-                    {
-                        transform.position = Vector2.MoveTowards(transform.position, target, runSpeed);     // Running (player moves faster)
-                    }
-                    else
-                    {
-                        transform.position = Vector2.MoveTowards(transform.position, target, speed);        // Walking (player moves at a normal speed)
-                    }
+                    if (isRun) transform.position = Vector2.MoveTowards(transform.position, target, runSpeed);     // Running (player moves faster)
+                    else transform.position = Vector2.MoveTowards(transform.position, target, speed);        // Walking (player moves at a normal speed)
 
                     // When the player reaches to the next grid
-					if (transform.position.y >= target_y)
-					{
-						target_y = 0;
-						isMoving = false;
+                    if (transform.position.y >= target_y) {
+                        target_y = 0;
+                        isMoving = false;
                         animator.SetBool("IsMoving", isMoving);
                         animator.SetInteger("direction", dir);
                     }
-					break;
+                    break;
 
-					// Down
-				case 1:
-                    if (isRun == true)
-                    {
-                        transform.position = Vector2.MoveTowards(transform.position, target, runSpeed);     // Running (player moves faster)
-                    }
-                    else
-                    {
-                        transform.position = Vector2.MoveTowards(transform.position, target, speed);        // Walking (player moves at a normal speed)
-                    }
+                // Down
+                case 1:
+                    if (isRun)  transform.position = Vector2.MoveTowards(transform.position, target, runSpeed);     // Running (player moves faster)
+                    else transform.position = Vector2.MoveTowards(transform.position, target, speed);        // Walking (player moves at a normal speed)
 
                     // When the player reaches to the next grid
-                    if (transform.position.y <= target_y)
-					{
-						target_y = 0;
-						isMoving = false;
+                    if (transform.position.y <= target_y) {
+                        target_y = 0;
+                        isMoving = false;
                         animator.SetBool("IsMoving", isMoving);
                         animator.SetInteger("direction", dir);
                     }
-					break;
+                    break;
 
-					// Left
-				case 2:
-                    if (isRun == true)
-                    {
-                        transform.position = Vector2.MoveTowards(transform.position, target, runSpeed);     // Running (player moves faster)
-                    }
-                    else
-                    {
-                        transform.position = Vector2.MoveTowards(transform.position, target, speed);        // Walking (player moves at a normal speed)
-                    }
+                // Left
+                case 2:
+                    if (isRun) transform.position = Vector2.MoveTowards(transform.position, target, runSpeed);     // Running (player moves faster)
+                    else transform.position = Vector2.MoveTowards(transform.position, target, speed);        // Walking (player moves at a normal speed)
 
                     // When the player reaches to the next grid
-                    if (transform.position.x <= target_x)
-					{
-						target_x = 0;
-						isMoving = false;
-                        animator.SetBool("IsMoving", isMoving);
-                        animator.SetInteger("direction", dir);
-                    }
-					break;
-
-					// Right
-				case 3:
-                    if (isRun == true)
-                    {
-                        transform.position = Vector2.MoveTowards(transform.position, target, runSpeed);     // Running (player moves faster)
-                    }
-                    else
-                    {
-                        transform.position = Vector2.MoveTowards(transform.position, target, speed);        // Walking (player moves at a normal speed)
-                    }
-
-                    // When the player reaches to the next grid
-                    if (transform.position.x >= target_x)
-                    {
+                    if (transform.position.x <= target_x) {
                         target_x = 0;
                         isMoving = false;
                         animator.SetBool("IsMoving", isMoving);
                         animator.SetInteger("direction", dir);
                     }
-					break;
-			}
-            
+                    break;
 
+                // Right
+                case 3:
+                    if (isRun) transform.position = Vector2.MoveTowards(transform.position, target, runSpeed);     // Running (player moves faster)
+                    else transform.position = Vector2.MoveTowards(transform.position, target, speed);        // Walking (player moves at a normal speed)
 
-
-			
-           
+                    // When the player reaches to the next grid
+                    if (transform.position.x >= target_x) {
+                        target_x = 0;
+                        isMoving = false;
+                        animator.SetBool("IsMoving", isMoving);
+                        animator.SetInteger("direction", dir);
+                    }
+                    break;
+            }
 #endregion
         }
-
-        
-
-
     }
-    
 }
 
