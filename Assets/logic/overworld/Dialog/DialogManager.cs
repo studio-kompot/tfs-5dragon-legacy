@@ -1,11 +1,12 @@
 ﻿//Dev!Bird Dialog System
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class DialogManager : MonoBehaviour {
-#region Variables
+    #region Variables
     public static DialogManager instance;
     public GameObject DialogPanel;
     public Text DName;
@@ -16,8 +17,16 @@ public class DialogManager : MonoBehaviour {
     private bool isOptionsType;
     private bool inDialog; //bugfix to garbled text appearing
     public GameObject OptionsContainer;
-#endregion
-#region Methods
+    StringBuilder builder = new StringBuilder();
+    public string StartTag { get; set; }
+    public string EndTag { get; set; }
+    public string ToPrint { get; set; }
+    public int RegionIndex { get; set; }
+    public int RegionBuffer { get; set; }
+    public bool IsRichText { get; set; }
+    private int OptionCount;
+    #endregion
+    #region Methods
     void Start() {
         dq = new Queue<DialogBase.DFrame>();
     }
@@ -31,6 +40,9 @@ public class DialogManager : MonoBehaviour {
         if (inDialog) return;
         inDialog = true;
         isOptionsType = (d is DialogOptions);
+        if (isOptionsType){
+          DialogOptions options = d as DialogOptions;
+        }
         DialogPanel.SetActive(true);
         foreach (DialogBase.DFrame i in d.DialogData) {
             dq.Enqueue(i);
@@ -51,14 +63,33 @@ public class DialogManager : MonoBehaviour {
             StartCoroutine(Scroll(current));
         }
     }
-    
-    IEnumerator Scroll (DialogBase.DFrame frame) {
-        DText.text = "";
-        foreach(char i in frame.text.ToCharArray()) {
+
+    IEnumerator Scroll(DialogBase.DFrame frame) {
+        ClearData();
+        ToPrint = frame.text;
+        for (int i = 0; i < ToPrint.Length; i++) {
+            var j = ToPrint[i];
             yield return new WaitForSeconds(delay);
-            DText.text += i;
-            yield return null;
+            IsRichText = (j == '<');
+            if (IsRichText) { //begin text formatting
+                RegionIndex = 0;
+                RichTextParser.ParseText(frame.text);
+                if(RegionIndex< RegionBuffer) {
+                    builder.Append(StartTag + j + EndTag);
+                } else {
+                    IsRichText = false;
+                }
+            }
+            else builder.Append(ToPrint[i]);
+            DText.text = builder.ToString();
         }
     }
-#endregion
+    void ClearData() {
+        DText.text = "";
+        builder.Length = 0;
+        RegionIndex = 0;
+        RegionBuffer = 0;
+        IsRichText = false;
+    }
+    #endregion
 }
