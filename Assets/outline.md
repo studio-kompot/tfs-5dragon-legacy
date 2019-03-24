@@ -15,9 +15,8 @@ Project Structure
 - `sound` All audio and background tracks
 - `unity` Unity and unity ~~accessories~~files.
 
-NB
---
-Files with the extenstion .gz are **archived**, and may be legacy code or a
+###NB
+Files with the extenstion .gz are **archived**, and may be legacy code or files that may be reincluded at a later date
 
 Main links
 ----------

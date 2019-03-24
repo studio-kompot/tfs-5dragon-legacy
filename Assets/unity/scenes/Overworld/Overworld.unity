@@ -187,7 +187,7 @@ MonoBehaviour:
   DText: {fileID: 2101477849}
   DFaceplate: {fileID: 737737180}
   delay: 0.001
-  OptionsContainer: {fileID: 0}
+  OptionsContainer: {fileID: 1544420030}
 --- !u!4 &233732893
 Transform:
   m_ObjectHideFlags: 0
@@ -5082,7 +5082,7 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 534296248}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ca835da3f53113e4c89e374b82692d61, type: 3}
@@ -5272,7 +5272,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.1
   runSpeed: 0.3
-  animator: {fileID: 0}
+  animator: {fileID: 616107113}
   playerMaxDistanceLeft: -18
   playerMaxDistanceRight: 40
   playerMaxDistanceUp: 40
@@ -23253,7 +23253,7 @@ GameObject:
   - component: {fileID: 891990157}
   - component: {fileID: 891990156}
   m_Layer: 0
-  m_Name: Game Manager
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78997,6 +78997,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1544420030 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1849806933588364, guid: 9b507665bc8a22144825fb1904f1b011,
+    type: 2}
+  m_PrefabInternal: {fileID: 966974093}
 --- !u!1 &1560360565
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,16 +6,17 @@ using UnityEngine.SceneManagement;
 using Skytanet.SimpleDatabase;
 
 public class Database : MonoBehaviour {
+#region Variables
     public Enum currentScene;
     public SaveFile currSave;
     public string sfName;
 
-    public static List<PartyMember> Party = new List<PartyMember>();
+    public static List<PartyMember> Party;
     public Dictionary<string, bool> Events;
     private GameObject Player;
     private string[] currSaveFiles;
-
-
+#endregion
+#region Methods
     void Start() {
         DontDestroyOnLoad(this.gameObject);
         currSaveFiles = SaveFile.GetSaveFileList();
@@ -37,4 +38,5 @@ public class Database : MonoBehaviour {
         return;
 
     }
+#endregion
 }

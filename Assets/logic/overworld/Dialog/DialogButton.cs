@@ -6,6 +6,7 @@ using UnityEngine;
 public class DialogButton : MonoBehaviour {
     AudioSource beep;
 
+#region Methods
     void Awake() {
         beep = GetComponent<AudioSource>();
 #if UNITY_EDITOR
@@ -30,4 +31,5 @@ public class DialogButton : MonoBehaviour {
 		if (gameObject.activeInHierarchy && (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space)))
             DialogManager.instance.Send();
     }
+#endregion
 }

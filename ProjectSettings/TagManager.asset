@@ -7,11 +7,8 @@ TagManager:
   - pEvent
   - Solid
   - Container
-  - PlayerCollisionUp
-  - PlayerCollisionDown
-  - PlayerCollisionLeft
-  - PlayerCollisionRight
   - NonSolid
+  - playerCollision
   layers:
   - Default
   - TransparentFX

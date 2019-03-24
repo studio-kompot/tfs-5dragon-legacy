@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class RichTextParser {
+#region Variables
     private string TagContent { get; set; }
     public static int CurrentIndex { get; set; }
+#endregion
     #region Methods
     public RichTextParser(string txt) {
         TagContent = txt;

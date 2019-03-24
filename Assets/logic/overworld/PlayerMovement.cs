@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour {
     public float playerMaxDistanceUp;
     public float playerMaxDistanceDown;
 
-    BitArray AvalibleDirections = new BitArray(4, true);
+    //BitArray AvalibleDirections = new BitArray(4, true);
     public static bool canMoveUp = true;
     public static bool canMoveDown = true;
     public static bool canMoveLeft = true;
