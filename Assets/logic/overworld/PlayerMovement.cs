@@ -1,9 +1,6 @@
 ﻿/* NOTE:
-   The Code here needs to be organised, which I'll do later but for now,
-   at least the basic movement works.
-
 FIXME: Latency issue with the animator updating the animation state.
-FIXME: Player gets stuck
+FIXME: Player gets stuck (EDIT: FIXED!)
 
 SEE: https://www.youtube.com/watch?v=hkaysu1Z-N8 <"2D Animation in Unity (Tutorial)", YouTube>
 for: how to make the animation work
@@ -22,6 +19,11 @@ public class PlayerMovement : MonoBehaviour {
 
     public Animator animator;
 
+    public float playerMaxDistanceLeft;
+    public float playerMaxDistanceRight;
+    public float playerMaxDistanceUp;
+    public float playerMaxDistanceDown;
+
     BitArray AvalibleDirections = new BitArray(4, true);
     public static bool canMoveUp = true;
     public static bool canMoveDown = true;
@@ -32,8 +34,9 @@ public class PlayerMovement : MonoBehaviour {
     private Vector3 position;
     private Vector3 player_collision;
 
-    private bool isMoving = false;
+    public static bool isMoving = false;
     private bool isRun = false;
+    public static int steps = 0;
     [SerializeField]
     public bool debug;
     private float target_x, target_y;
@@ -55,7 +58,7 @@ public class PlayerMovement : MonoBehaviour {
         Right
     }
 
-    private byte dir = 1;
+    public static byte dir = 1;
 #endregion
     #region Methods
     // Use this for initialization
@@ -64,7 +67,26 @@ public class PlayerMovement : MonoBehaviour {
         animator = GetComponent<Animator>();
         target = new Vector2(transform.position.x, transform.position.y);
         transform.position = target;
+        
+        //steps = Manager.steps;
+        if ( steps == 0 )
+        {
+            dir = Manager.playerDirection;
+            animator.SetInteger("direction", dir);
+            isMoving = false;
+            //isMoving = true;
+            //animator.SetBool("IsMoving", isMoving);
+            
+            //transform.position.x = Manager.playerPosition.x;
+            //transform.position.y = Manager.playerPosition.y;
+            transform.position = Manager.playerPosition;
 
+            canMoveLeft = true;
+            canMoveRight = true;
+            canMoveUp = true;
+            canMoveDown = true;
+        }
+        
     }
 
     // Update is called once per frame
@@ -77,6 +99,7 @@ public class PlayerMovement : MonoBehaviour {
             target = new Vector2(transform.position.x, transform.position.y);
             transform.position = target;
 
+            
             // Left
             if (Input.GetKey("left") && (canMoveLeft /*|| AvalibleDirections[Direction.Left]*/)) {
                     position.x = -1;            // left
@@ -134,10 +157,21 @@ public class PlayerMovement : MonoBehaviour {
                     animator.SetBool("IsMoving", isMoving);
                 }
 
+
+
+            
+
             // Press the 'X' button to Run
             isRun = Input.GetKey(KeyCode.X);
 
         } else {
+            /*
+            if ( steps == 0 )
+            {
+                isMoving = false;
+                steps = 1;
+            }
+            */
             switch (dir) {
                 // Up
                 case 0:
@@ -151,6 +185,7 @@ public class PlayerMovement : MonoBehaviour {
                         isMoving = false;
                         animator.SetBool("IsMoving", isMoving);
                         animator.SetInteger("direction", dir);
+                        steps++;
                     }
                     break;
 
@@ -165,6 +200,7 @@ public class PlayerMovement : MonoBehaviour {
                         isMoving = false;
                         animator.SetBool("IsMoving", isMoving);
                         animator.SetInteger("direction", dir);
+                        steps++;
                     }
                     break;
 
@@ -179,6 +215,7 @@ public class PlayerMovement : MonoBehaviour {
                         isMoving = false;
                         animator.SetBool("IsMoving", isMoving);
                         animator.SetInteger("direction", dir);
+                        steps++;
                     }
                     break;
 
@@ -193,6 +230,7 @@ public class PlayerMovement : MonoBehaviour {
                         isMoving = false;
                         animator.SetBool("IsMoving", isMoving);
                         animator.SetInteger("direction", dir);
+                        steps++;
                     }
                     break;
             }

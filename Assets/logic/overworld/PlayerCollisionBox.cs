@@ -11,8 +11,8 @@ public class PlayerCollisionBox : MonoBehaviour {
     // 1 = Down
     // 2 = Left
     // 3 = Right
+    
 
-        
 
 
     // Use this for initialization
@@ -41,6 +41,7 @@ public class PlayerCollisionBox : MonoBehaviour {
                 break;
         }
 
+        
     }
 
 
