@@ -87,15 +87,15 @@ public class FungusTrigger : MonoBehaviour {
 	}
 
 	void OnTriggerEnter (Collider other) { 
-		if(IsTaggedCorrectly(other.gameObject)) { Trigger(); }
+		if(IsTaggedCorrectly(other.gameObject) && (Input.GetKeyDown("space") || Input.GetKeyDown("enter"))) Trigger();
 	}
 
 	void OnCollisionEnter(Collision collision) {
-		if(IsTaggedCorrectly(collision.gameObject)) { Trigger(); }
+		if(IsTaggedCorrectly(collision.gameObject) && (Input.GetKeyDown("space") || Input.GetKeyDown("enter"))) Trigger();
 	}
 
 	void OnControllerColliderHit(ControllerColliderHit hit) {
-		if(IsTaggedCorrectly(hit.collider.gameObject)) { Trigger(); }
+		if(IsTaggedCorrectly(hit.collider.gameObject) && (Input.GetKeyDown("space") || Input.GetKeyDown("enter"))) Trigger(); 
 	}
 
 	/// <summary>list of rigid bodies stopped in time</summary>
