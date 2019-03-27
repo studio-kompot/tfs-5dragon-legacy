@@ -8,15 +8,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 7a4303006c1941e4b9d25ebcb9f3427f, type: 3}
   m_Name: goblin
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   cname: Goblin
-  str: 8
-  dex: 14
-  con: 10
-  inte: 10
-  wis: 8
-  cha: 8
+  str: 0
+  dex: 0
+  con: 0
+  inte: 0
+  wis: 0
+  cha: 0
   hp: 0
   mp: 0
+  image: {fileID: 0}

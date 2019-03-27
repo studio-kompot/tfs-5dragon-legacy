@@ -1,5 +1,7 @@
 fileFormatVersion: 2
 guid: 74854578abe64cc4cb2419505b7f586a
+labels:
+- Advanced
 TextScriptImporter:
   externalObjects: {}
   userData: 

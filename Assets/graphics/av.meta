@@ -1,5 +1,7 @@
 fileFormatVersion: 2
 guid: 15500595795c14f4fbf804f8ca265357
+labels:
+- Effect
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

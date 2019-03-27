@@ -8,6 +8,7 @@
 
 Project Structure
 -----------------
+- `arc` Archive for things that may be included in the project at a later date.
 - `def` Enemy, character and dialog definitions
 - `graphics` Graphics files and sprites
 - `logic` All the code and logic of the game

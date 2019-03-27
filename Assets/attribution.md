@@ -1,7 +1,8 @@
 Attribution
------------
+===========
 
-###Music
+Music
+-----
 - [Peek-Door Quest by Rolemusic][peekdoor] is licensed under an [Attribution 4.0 International (CC BY 4.0)][byfour] license
 - [The Little Broth by Rolemusic][littlebroth] is licensed under an [Attribution 4.0 International (CC BY 4.0)][byfour] license
 - [Flamenco Rhythm by Sunsearcher][flamenco1] is licensed under a [Attribution-ShareAlike 3.0 International License][bythree].
@@ -22,7 +23,8 @@ Attribution
 [zanzibar]: https://freesound.org/people/lena_orsa/sounds/442792/
 [tunnels]: https://freesound.org/people/FoolBoyMedia/sounds/341865/
 
-##Sound Effects
+Sound Effects
+-------------
 - [charm by scrampunk][charm] is licensed under an [Attribution 4.0 International (CC BY 4.0)][byfour] license
 - [Fireball by qubodup][fireball] is licensed under the [Attribution License 3.0 International (CC BY 3.0)][bythree] or later.
 - [shing.wav by copyc4t][shing] is licensed under the [Attribution License 3.0 International (CC BY 3.0)][bythree] or later.
@@ -33,9 +35,19 @@ Attribution
 [sfx]: http://taira-komori.jpn.org/freesounden.html
 [shing]: https://freesound.org/people/copyc4t/sounds/209942/
 
-###Code
-- Dialog system by "Dev!Bird" on [YouTube](https://www.youtube.com/channel/UCBbJ0w6jHxjLNKotoIg4aXQ), source files implementing such are marked `"//Dev!Bird Dialog System"` on line 1.
+Code
+----
+- [Fungus][fungus] is licensed under the MIT License, Copyright (c) 2014 Chris Gregan.
 
+[fungus]: https://fungusgames.com/
+
+Images
+------
+
+- The sprite for the dread gazebo is derived from "[Gazebo][gazebo]" by flickr user "[Rachel]()" is licensed under a [Attribution-NonCommercial-ShareAlike 2.0 Generic][byncsa] license
+
+[gazebo]: https://flic.kr/p/5whUp
 
 [bythree]: http://creativecommons.org/licenses/by/3.0/
 [byfour]: https://creativecommons.org/licenses/by/4.0/
+[byncsa]: https://creativecommons.org/licenses/by-nc-sa/2.0/

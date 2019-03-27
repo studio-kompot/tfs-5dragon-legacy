@@ -23553,12 +23553,8 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 114317184302017442, guid: 509adbde48c2aa74a97f29980307c998,
-        type: 2}
-      propertyPath: broadcast.Array.data[0].messageToSend
-      value: s1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114317184302017442, guid: 509adbde48c2aa74a97f29980307c998, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 509adbde48c2aa74a97f29980307c998, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &1082035105

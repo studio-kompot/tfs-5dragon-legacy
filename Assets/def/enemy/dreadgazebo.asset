@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: dreadgazebo
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy
+  cname: Dread Gazebo
+  str: 0
+  dex: 0
+  con: 0
+  inte: 0
+  wis: 0
+  cha: 0
+  hp: 0
+  mp: 0
+  image: {fileID: 0}

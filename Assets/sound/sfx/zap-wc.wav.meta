@@ -1,5 +1,7 @@
 fileFormatVersion: 2
 guid: bbe8ac8d41e67ce468a2df1ad8ff8266
+labels:
+- Audio
 AudioImporter:
   externalObjects: {}
   serializedVersion: 6

@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,7 +8,7 @@ public class Character : ScriptableObject {
     public string cname;
     /// <summary>How strong a character is, used to </summary>
     public int str;
-    /// <summary> </summary>
+    /// <summary>How speedy a character is</summary>
     public int dex;
     /// <summary>Used to calculate max HP</summary>
     public int con;
@@ -23,18 +23,8 @@ public class Character : ScriptableObject {
     /// <summary>A character's mana</summary>
     public int mp;
     public BitArray status;
+    public List<Attack> SpAttacks;
+    public Sprite image;
 }
 
-[CreateAssetMenu(fileName = "New Enemy", menuName = "Enemy")]
-public class Enemy : Character {
 
-}
-[CreateAssetMenu(fileName = "New Party Member", menuName = "Party Member")]
-public class PartyMember : Character {
-    public int exp;
-    Dictionary<string, InvItem> inventory;
-}
-
-public static class PartyData {
-    public static List<PartyMember> partyMembers;
-}

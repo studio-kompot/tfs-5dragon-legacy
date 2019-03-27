@@ -1,5 +1,7 @@
 fileFormatVersion: 2
 guid: 8f72ee6b01baa424a8c4952bdc63fec7
+labels:
+- Effect
 DefaultImporter:
   externalObjects: {}
   userData: 

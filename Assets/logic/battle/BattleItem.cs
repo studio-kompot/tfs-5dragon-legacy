@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
@@ -15,13 +15,4 @@ public class BattleItem {
     public BitArray statusmask;
     public VideoClip Animation;
     public List<string> Targets { get; set; }
-}
-
-public class Attack : BattleItem {
-    public string FlavorText;
-    public int DC;
-}
-
-public class InvItem : BattleItem {
-    public int count;
 }
