@@ -19,6 +19,7 @@ public class BattleItem {
 
 public class Attack : BattleItem {
     public string FlavorText;
+    public int DC;
 }
 
 public class InvItem : BattleItem {

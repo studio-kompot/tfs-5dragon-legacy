@@ -5075,7 +5075,7 @@ GameObject:
   - component: {fileID: 312501723}
   m_Layer: 0
   m_Name: PlayerCollisionBoxDown
-  m_TagString: PlayerCollisionDown
+  m_TagString: playerCollision
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23553,11 +23553,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 1296329576908860, guid: 509adbde48c2aa74a97f29980307c998, type: 2}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000,
-        type: 0}
+    - target: {fileID: 114317184302017442, guid: 509adbde48c2aa74a97f29980307c998,
+        type: 2}
+      propertyPath: broadcast.Array.data[0].messageToSend
+      value: s1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 509adbde48c2aa74a97f29980307c998, type: 2}
   m_IsPrefabAsset: 0
@@ -39593,7 +39593,7 @@ GameObject:
   - component: {fileID: 1352353401}
   m_Layer: 0
   m_Name: PlayerCollisionBoxRight
-  m_TagString: PlayerCollisionRight
+  m_TagString: playerCollision
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79245,7 +79245,7 @@ GameObject:
   - component: {fileID: 1750491925}
   m_Layer: 0
   m_Name: PlayerCollisionBoxUp
-  m_TagString: PlayerCollisionUp
+  m_TagString: playerCollision
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79364,7 +79364,7 @@ GameObject:
   - component: {fileID: 2115435585}
   m_Layer: 0
   m_Name: PlayerCollisionBoxLeft
-  m_TagString: PlayerCollisionLeft
+  m_TagString: playerCollision
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

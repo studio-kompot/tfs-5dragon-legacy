@@ -27,6 +27,10 @@ public class Database : MonoBehaviour {
         currSave = new SaveFile(s ?? sfName);
     }
 
+    public static int CalcAbilScore(int x) {
+        return (int)System.Math.Floor((double)((x - 10) / 2));
+    }
+
     void DoSave() {
         currSave.Set("position",(Vector2)Player.transform.localPosition);
         currSave.Set("Scene", SceneManager.GetActiveScene().name);
