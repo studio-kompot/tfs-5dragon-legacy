@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Jukebox : MonoBehaviour {
     AudioSource m;
-    public AudioClip[] Tracks;
-    public int? TrackNumber;
+    public List<AudioClip> Tracks;
 	// Use this for initialization
 	void Start () {
         m = GetComponent<AudioSource>();
@@ -15,16 +14,13 @@ public class Jukebox : MonoBehaviour {
 #endif
             throw new System.NullReferenceException();
         } else {
-            m.clip = Tracks[TrackNumber ?? 0];
+            m.clip = Tracks[(int)BattleInit.AMusic];
             if (m.clip != null) m.Play();
         }
         
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-    
-    void SetMusic(AudioClip a) { }
+    void SetMusic(AudioClip a) {
+        Tracks.Add(a);
+        m.clip = a;
+    }
 }

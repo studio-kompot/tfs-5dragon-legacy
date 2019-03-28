@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TurnManager : MonoBehaviour {
 
@@ -31,7 +32,13 @@ public class TurnManager : MonoBehaviour {
 #endif
         foreach (PartyMember i in Database.Party) {
             var current = Instantiate(HealthPanel, ContainerList[1].transform);
-
+            current.transform.Find("Name").gameObject.GetComponent<Text>().text = i.cname;
+            current.transform.Find("HPNumber").gameObject.GetComponent<Text>().text = System.String.Format("{0} / {1}", i.hp.ToString(), (i.con ).ToString());
+            if ((i.inte - 10) <= 0) {
+                Destroy(current.transform.Find("MPNumber").gameObject);
+                Destroy(current.transform.Find("MPLabel").gameObject);
+            }
+            else current.transform.Find("MPNumber").gameObject.GetComponent<Text>().text = System.String.Format("{0} / {1}", i.mp.ToString(), i.inte.ToString());
         }
     }
 
@@ -52,9 +59,9 @@ public class TurnManager : MonoBehaviour {
             }
             rep.Add(rand.Next(1, 20) + Database.CalcAbilScore(i.dex), i);
         }
-#if UNITY_EDITOR && TEMP
+#if UNITY_EDITOR
         foreach (var i in rep) {
-            Debug.Log("{0}: {1}".Format(i.Key.ToString(), i.Value.name));
+            Debug.Log(System.String.Format("{0}: {1}",i.Key.ToString(), i.Value.name));
         }
 #endif
         return rep;

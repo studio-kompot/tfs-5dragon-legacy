@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4382791383342324}
   - component: {fileID: 61670825648117454}
-  - component: {fileID: 114317184302017442}
+  - component: {fileID: 114432353202612344}
   m_Layer: 0
   m_Name: FungusTrigger
   m_TagString: Untagged
@@ -66,7 +66,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114317184302017442
+--- !u!114 &114432353202612344
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -74,13 +74,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1296329576908860}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39464c279573b0d4393af47348b973de, type: 3}
+  m_Script: {fileID: 11500000, guid: fae228b89a2e6e540b6f21127b66d522, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  broadcast:
-  - messageToSend: 
-  setVariable: []
-  addToVariable: []
-  tagsThatCanTrigger:
-  - playerCollision
-  onlyTriggerOnce: 0
+  fc: {fileID: 0}
+  ready: 0

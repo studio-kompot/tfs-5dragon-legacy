@@ -18,12 +18,15 @@ public class Character : ScriptableObject {
     public int wis;
     /// <summary></summary>
     public int cha;
+    /// <summary></summary>
+    public int ac;
     /// <summary>A Character's health.</summary>
     public int hp;
     /// <summary>A character's mana</summary>
     public int mp;
     public BitArray status;
     public List<Attack> SpAttacks;
+    public List<InvItem> Inventory;
     public Sprite image;
 }
 
