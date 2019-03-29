@@ -18,17 +18,13 @@ public class pEvent : MonoBehaviour {
     public Type mode;
     public DialogBase dialog;
     public GameObject DialogPanel;
-    public bool active;
 
     public void Trigger() {
         DialogManager.instance.Init(dialog);
     }
     public void Update() {
         //TODO: Add more appropriate trigger
-        if (Input.GetKey(KeyCode.I) && mode == Type.debug) DialogManager.instance.Init(dialog);
-        if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Return)) && (mode == Type.sign || mode == Type.npc)) DialogManager.instance.Init(dialog);
-    }
-    private void OnCollisionEnter2D(Collision2D collision) {
-        active = (collision.gameObject.tag == "playerCollision") ;
+        if (Input.GetKeyDown(KeyCode.I) && mode == Type.debug) DialogManager.instance.Init(dialog);
+
     }
 }

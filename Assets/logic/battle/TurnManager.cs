@@ -11,7 +11,7 @@ public class TurnManager : MonoBehaviour {
     public Transform HealthPanel;
     public Queue<BattleItem> BattleQueue;
     private static System.Random rand = new System.Random(20);
-    public int TurnIndex = 0;
+
     #endregion
     #region Methods
     // Use this for initialization
@@ -33,17 +33,16 @@ public class TurnManager : MonoBehaviour {
         foreach (PartyMember i in Database.Party) {
             var current = Instantiate(HealthPanel, ContainerList[1].transform);
             current.transform.Find("Name").gameObject.GetComponent<Text>().text = i.cname;
-            current.transform.Find("HPNumber").gameObject.GetComponent<Text>().text = System.String.Format("{0} / {1}", i.hp.ToString(), i.con.ToString());
+            current.transform.Find("HPNumber").gameObject.GetComponent<Text>().text = System.String.Format("{0} / {1}", i.hp.ToString(), (i.con ).ToString());
             if ((i.inte - 10) <= 0) {
                 Destroy(current.transform.Find("MPNumber").gameObject);
                 Destroy(current.transform.Find("MPLabel").gameObject);
             }
             else current.transform.Find("MPNumber").gameObject.GetComponent<Text>().text = System.String.Format("{0} / {1}", i.mp.ToString(), i.inte.ToString());
         }
-
     }
 
-    SortedList<int, Character> TurnOrder() {
+    SortedList<int, Character> cTurnOrder() {
         var rep = new SortedList<int, Character>();
         foreach (Character i in Database.Party) {
             if (i == null) { //can't happen, hopefully.

@@ -28,7 +28,6 @@ public class Character : ScriptableObject {
     public List<Attack> SpAttacks;
     public List<InvItem> Inventory;
     public Sprite image;
-    public Attack standardAttack;
 }
 
 
