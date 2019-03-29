@@ -17,7 +17,7 @@ public class DialogButton : MonoBehaviour {
     public void NextLine() {
         if (DialogManager.instance != null) {
             DialogManager.instance.Send();
-            beep.Play();
+            if (beep != null) beep.Play();
         }
 #if UNITY_EDITOR
         else {
