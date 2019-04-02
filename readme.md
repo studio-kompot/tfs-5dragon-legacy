@@ -29,9 +29,6 @@ Main links
 ##Slack:
 - <https://kompot-tfs.slack.com/>
 - Research and planning chat, as well as secondary file storage & communication
-##WhatsApp:
-- <https://chat.whatsapp.com/FMY3vHiqBRHIod3fdxCxbu>
-- Semi-formal chat, general purpose, intended primary communication channel
 ##Google Drive:
 - <https://drive.google.com/drive/folders/1GUgiy8EMZDn8cgWhRgNoMHHtF2FGHqCs?usp=sharing>
 - Primary file storage
