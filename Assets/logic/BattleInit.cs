@@ -6,17 +6,21 @@ public static class BattleInit {
     //TODO: MOAR CODE!!!!!!
 
     public static List<Enemy> Enemies;
-    public enum BBackground {
-      field,
-      cave,
-      volcano
+    public enum EMusic {
+        standard,
+        miniboss,
+        boss
     }
-    public static BBackground ABackground;
-    public enum MMusic {
-      standard,
-      miniboss,
-      boss,
-      special
+    public enum EBackground {
+        field,
+        volcano,
+        cave
     }
-    public static MMusic AMusic;
+    public static EMusic AMusic = EMusic.standard;
+    public static EBackground ABackground = EBackground.field;
+    static void Clear() {
+        Enemies = new List<Enemy>();
+        AMusic = 0;
+        ABackground = 0;
+    }
 }

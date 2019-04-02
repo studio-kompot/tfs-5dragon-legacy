@@ -1,5 +1,8 @@
 fileFormatVersion: 2
-guid: 2ba194c589c297a47b93e7d57b3232e9
+guid: 8dbd54af72a09ff48b2d009f82fac3bb
+labels:
+- Character
+folderAsset: yes
 DefaultImporter:
   externalObjects: {}
   userData: 

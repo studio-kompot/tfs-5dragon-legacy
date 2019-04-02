@@ -13,4 +13,9 @@ public class Background : MonoBehaviour {
         current = GetComponent<Image>();
         current.sprite = Backgrounds[(int)BattleInit.ABackground];
 	}
+	
+	// Update is called once per frame
+	void Update () {
+		
+	}
 }
